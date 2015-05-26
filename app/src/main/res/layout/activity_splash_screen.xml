@@ -1,32 +1,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="0dp"
-    android:gravity="center_horizontal"
-    android:background="#ffffff">
+    android:layout_gravity="center"
+    android:background="#ffffff"
+    android:padding="0dp">
 
-    <WebView
+    <ImageView
         android:id="@+id/webview_splash"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="Logo"
+        android:src="@drawable/caiena" />
+
+    <ImageView
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
-    <TextView
-        android:id="@+id/loadtext"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Carregando"
-        android:textSize="30sp"
-        android:layout_below="@id/webview_splash"
-        android:textColor="#000000"
-        android:gravity="center_horizontal"/>
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Caiena"
-        android:textSize="30sp"
-        android:gravity="center_horizontal"
-        android:textColor="#FF0000"
+        android:layout_below="@+id/webview_splash"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/loadtext"/>
+        android:src="@drawable/caiena_logotype" />
 
 </RelativeLayout>
