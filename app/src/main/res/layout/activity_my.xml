@@ -1,14 +1,15 @@
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipe_container"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="0dp"
-    android:background="#ffffff">
+    android:background="#696969">
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#ffffff">
+        android:background="#696969">
 
         <WebView
             android:id="@+id/webview_site"

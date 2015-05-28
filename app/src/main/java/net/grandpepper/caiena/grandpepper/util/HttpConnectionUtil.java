@@ -14,9 +14,9 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 public class HttpConnectionUtil {
-	public static String sendRegistrationIdToBackend(String regId){
+	public static String sendRegistrationIdToBackend(String regId) throws Exception {
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost("http://www.thiengo.com.br/doc/projects/android/gcm/ctrl/CtrlGcm.php");
+		HttpPost httpPost = new HttpPost("http://www.davidpedoneze.com/gcm-php/ctrl/CtrlGcm.php");
 		String answer = "";
 		
 		try{
@@ -28,10 +28,9 @@ public class HttpConnectionUtil {
 			HttpResponse resposta = httpClient.execute(httpPost);
 			answer = EntityUtils.toString(resposta.getEntity());
 		}
-		catch(NumberFormatException e){ e.printStackTrace(); }
-		catch(NullPointerException e){ e.printStackTrace(); }
-		catch(ClientProtocolException e){ e.printStackTrace(); }
-		catch(IOException e){ e.printStackTrace(); }
+		catch(Exception e){
+            throw new Exception("Erro ao registrar.");
+        }
 		return(answer);
 	}
 }

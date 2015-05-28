@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.TypedValue;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -18,13 +19,15 @@ public class WebViewActivity extends Activity implements SwipeRefreshLayout.OnRe
     private WebView webView;
     private SwipeRefreshLayout swipeLayout;
     private Context context;
+    private String url ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
-
         context = this;
+
+        url = getIntent().getExtras().getString("url");
         webView = (WebView) findViewById(R.id.webview_site);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -40,7 +43,7 @@ public class WebViewActivity extends Activity implements SwipeRefreshLayout.OnRe
             Toast.makeText(context,"sem conexão ativa",Toast.LENGTH_LONG).show();
         }
 
-        webView.loadUrl("http://www.davidpedoneze.com/gp/");
+        webView.loadUrl(url);
 
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
@@ -54,6 +57,8 @@ public class WebViewActivity extends Activity implements SwipeRefreshLayout.OnRe
         swipeLayout.setOnRefreshListener(this);
         swipeLayout.setColorSchemeColors(getResources().getColor(R.color.green), getResources().getColor(R.color.yellow), getResources().getColor(R.color.orange),
                 getResources().getColor(R.color.blue));
+        swipeLayout.setProgressViewOffset(false, 0,
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
         swipeLayout.setRefreshing(true);
     }
 
@@ -67,6 +72,10 @@ public class WebViewActivity extends Activity implements SwipeRefreshLayout.OnRe
     public void onRefresh() {
         if (!isNetworkAvailable()) {
             Toast.makeText(context,"sem conexão ativa",Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(webView.getUrl() == null) {
+            webView.loadUrl(url);
             return;
         }
         webView.reload();

@@ -18,36 +18,49 @@ import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 public class SplashScreenActivity extends Activity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 5000;
-    public static final String TAG = "Script";
-    private Context context;
-
-    private String SENDER_ID = "";
-    private String regId;
-    private GoogleCloudMessaging gcm;
+    private final int SPLASH_DISPLAY_LENGTH = 3000;
+    public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        context = this;
+        Context context = this;
 
-        if(AndroidSystemUtil.checkPlayServices(context)){
-            gcm = GoogleCloudMessaging.getInstance(this);
-            regId = AndroidSystemUtil.getRegistrationId(this);
+        if(checkPlayServices(context)) {
+            String regId = AndroidSystemUtil.getRegistrationId(this);
 
-            if(regId.trim().length() == 0){
+            if (regId.trim().length() == 0) {
                 new AsyncTaskRegisterID().execute(context);
+                return;
             }
-        }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent mainIntent = new Intent(SplashScreenActivity.this, WebViewActivity.class);
-                SplashScreenActivity.this.startActivity(mainIntent);
-                SplashScreenActivity.this.finish();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent mainIntent = new Intent(SplashScreenActivity.this, WebViewActivity.class);
+                    Bundle mBundle = new Bundle();
+                    mBundle.putString("url", "http://www.davidpedoneze.com/gp/");
+                    mainIntent.putExtras(mBundle);
+                    SplashScreenActivity.this.startActivity(mainIntent);
+                    SplashScreenActivity.this.finish();
+                }
+            }, SPLASH_DISPLAY_LENGTH);
+        }
+    }
+
+    private boolean checkPlayServices(Context context){
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(context);
+
+        if(resultCode != ConnectionResult.SUCCESS){
+            if(GooglePlayServicesUtil.isUserRecoverableError(resultCode)){
+                GooglePlayServicesUtil.getErrorDialog(resultCode, SplashScreenActivity.this, PLAY_SERVICES_RESOLUTION_REQUEST).show();
+            }else{
+                Toast.makeText(context, "PlayServices sem suporte", Toast.LENGTH_SHORT).show();
+                ((Activity) context).finish();
             }
-        }, SPLASH_DISPLAY_LENGTH);
+            return(false);
+        }
+        return(true);
     }
 }
