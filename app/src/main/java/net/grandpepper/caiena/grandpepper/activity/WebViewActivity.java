@@ -10,6 +10,7 @@ import android.util.TypedValue;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import net.grandpepper.caiena.grandpepper.R;
@@ -29,6 +30,13 @@ public class WebViewActivity extends Activity implements SwipeRefreshLayout.OnRe
 
         url = getIntent().getExtras().getString("url");
         webView = (WebView) findViewById(R.id.webview_site);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url){
+                view.loadUrl(url);
+                return true;
+            }
+        });
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadsImagesAutomatically(true);
