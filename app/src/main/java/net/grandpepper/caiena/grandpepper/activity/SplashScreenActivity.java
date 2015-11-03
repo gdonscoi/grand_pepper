@@ -18,7 +18,6 @@ import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 public class SplashScreenActivity extends Activity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 3000;
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
     @Override
@@ -30,11 +29,12 @@ public class SplashScreenActivity extends Activity {
         if(checkPlayServices(context)) {
             String regId = AndroidSystemUtil.getRegistrationId(this);
 
-            if (regId.trim().length() == 0) {
+            if (regId.trim().isEmpty()) {
                 new AsyncTaskRegisterID().execute(context);
                 return;
             }
 
+            int SPLASH_DISPLAY_LENGTH = 3000;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

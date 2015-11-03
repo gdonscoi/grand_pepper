@@ -1,9 +1,5 @@
 package net.grandpepper.caiena.grandpepper.util;
 
-/**
- * Created by gdonscoi on 5/27/15.
- */
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -12,6 +8,9 @@ import android.util.Log;
 
 import net.grandpepper.caiena.grandpepper.activity.SplashScreenActivity;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
 
 public class AndroidSystemUtil {
@@ -34,8 +33,7 @@ public class AndroidSystemUtil {
 
     public static int randInt() {
         Random rand = new Random();
-        int randomNum = rand.nextInt((50000 - 0) + 1) + 0;
-        return randomNum;
+        return rand.nextInt((50000) + 1);
     }
 
 
@@ -67,10 +65,24 @@ public class AndroidSystemUtil {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(PROPERTY_REG_ID, regId);
         editor.putInt(PROPERTY_APP_VERSION, appVersion);
-        editor.commit();
+        editor.apply();
     }
 
     public static SharedPreferences getGCMPreferences(Context context) {
         return (context.getSharedPreferences(SplashScreenActivity.class.getSimpleName(), Context.MODE_PRIVATE));
+    }
+
+    public static String readStream(InputStream is) {
+        try {
+            ByteArrayOutputStream bo = new ByteArrayOutputStream();
+            int i = is.read();
+            while (i != -1) {
+                bo.write(i);
+                i = is.read();
+            }
+            return bo.toString();
+        } catch (IOException e) {
+            return "";
+        }
     }
 }

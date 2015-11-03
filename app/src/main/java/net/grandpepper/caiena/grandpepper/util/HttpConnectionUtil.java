@@ -1,37 +1,25 @@
 package net.grandpepper.caiena.grandpepper.util;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-//import org.apache.http.HttpResponse;
-//import org.apache.http.NameValuePair;
-//import org.apache.http.client.ClientProtocolException;
-//import org.apache.http.client.HttpClient;
-//import org.apache.http.client.entity.UrlEncodedFormEntity;
-//import org.apache.http.client.methods.HttpPost;
-//import org.apache.http.impl.client.DefaultHttpClient;
-//import org.apache.http.message.BasicNameValuePair;
-//import org.apache.http.util.EntityUtils;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class HttpConnectionUtil {
-	public static String sendRegistrationIdToBackend(String regId) throws Exception {
-//		HttpClient httpClient = new DefaultHttpClient();
-//		HttpPost httpPost = new HttpPost("http://www.davidpedoneze.com/gcm-php/ctrl/CtrlGcm.php");
-//		String answer = "";
-//
-//		try{
-//			ArrayList<NameValuePair> valores = new ArrayList<NameValuePair>();
-//			valores.add(new BasicNameValuePair("method", "save-gcm-registration-id"));
-//			valores.add(new BasicNameValuePair("reg-id", regId));
-//
-//			httpPost.setEntity(new UrlEncodedFormEntity(valores));
-//			HttpResponse resposta = httpClient.execute(httpPost);
-//			answer = EntityUtils.toString(resposta.getEntity());
-//		}
-//		catch(Exception e){
-//            throw new Exception("Erro ao registrar.");
-//        }
-//		return(answer);
-        return "";
-	}
+    public static String sendRegistrationIdToBackend(String regId) throws Exception {
+        String answer = "";
+        URL url = new URL("http://www.davidpedoneze.com/gcm-php/ctrl/CtrlGcm.php");
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setRequestProperty("method", "save-gcm-registration-id");
+        urlConnection.setRequestProperty("reg-id", regId);
+        try {
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            answer = AndroidSystemUtil.readStream(in);
+        } catch (Exception e) {
+            throw new Exception("Erro ao registrar.");
+        } finally {
+            urlConnection.disconnect();
+        }
+        return answer;
+    }
 }

@@ -14,11 +14,6 @@ import net.grandpepper.caiena.grandpepper.activity.WebViewActivity;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 import net.grandpepper.caiena.grandpepper.util.HttpConnectionUtil;
 
-import java.io.IOException;
-
-/**
- * Created by gdonscoi on 5/27/15.
- */
 public class AsyncTaskRegisterID extends AsyncTask<Object, Boolean, Boolean> {
 
     private Context context;
@@ -37,7 +32,7 @@ public class AsyncTaskRegisterID extends AsyncTask<Object, Boolean, Boolean> {
             AndroidSystemUtil.storeRegistrationId(context, regId);
         } catch (Exception e) {
             Log.e("AsyncTasckRegister", e.getMessage());
-            Toast.makeText(context, e.getMessage(),Toast.LENGTH_LONG).show();
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -45,8 +40,8 @@ public class AsyncTaskRegisterID extends AsyncTask<Object, Boolean, Boolean> {
     }
 
     @Override
-    public void onPostExecute(Boolean msg){
-        if(msg) {
+    public void onPostExecute(Boolean msg) {
+        if (msg) {
             Intent mainIntent = new Intent(context, WebViewActivity.class);
             Bundle mBundle = new Bundle();
             mBundle.putString("url", "http://www.davidpedoneze.com/gp/");
