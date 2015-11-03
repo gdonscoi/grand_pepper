@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         collapsingToolbarLayout.setTitle("Grand Pepper");
         collapsingToolbarLayout.setExpandedTitleColor(Color.parseColor("#ffffff"));
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
-//        collapsingToolbarLayout.setContentScrimColor(Color.parseColor("#696969"));
         collapsingToolbarLayout.setStatusBarScrimColor(Color.parseColor("#ffffff"));
 
         RecyclerView recList = (RecyclerView) findViewById(R.id.recycler_view_card);

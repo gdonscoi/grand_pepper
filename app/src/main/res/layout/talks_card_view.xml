@@ -1,0 +1,54 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="10dp"
+    card_view:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:id="@+id/container_main_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#121212">
+
+        <ImageView
+            android:id="@+id/image_background_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@android:string/untitled"
+            android:scaleType="fitXY"
+            android:src="@drawable/usuario_image"
+            android:transitionName="comum_image_owner" />
+
+        <TextView
+            android:id="@+id/text_description_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_background_card"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:text="TESTE STRED RE D RE DS"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:transitionName="name_owner" />
+
+        <TextView
+            android:id="@+id/text_description_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_description_card"
+            android:text="Desenvolvedor"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:transitionName="comum_description_owner" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
