@@ -1,0 +1,216 @@
+[
+  {
+    "version": 1,
+
+    "title": "Grand Pepper piloto!",
+    "subtitle": "first things first",
+    "date": "2015/04/30",
+    "summary": "A primeira edição do Grand Pepper vem recheada de atrações: apresentação do Plano de Carreira, JavaScript, Android e Processo de Desenvolvimento!",
+    "locationName": "Campinas",
+    "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-1.jpg",
+
+    "events": [
+
+      {
+        "eventType": "breakfast",
+        "title": "Café da Manhã em Rio Claro",
+        "summary": "Um maravilhoso café da manhã na maravilhosa sede Rio Claro!",
+        "startTime": "08:00",
+        "endTime": "08:30"
+      },
+
+      {
+        "eventType": "breakfast",
+        "title": "Café da Manhã em Campinas",
+        "summary": "Café da manhã meia-boca em Campinas!",
+        "startTime": "08:00",
+        "endTime": "08:30"
+      },
+
+      {
+        "eventType": "police",
+        "title": "Comitiva Rio Claro em apuros!",
+        "summary": "A Comitiva Rio Claro -- ComRio -- foi abordada por um agente da Lei obrigando-os a parar! ",
+        "startTime": "08:30",
+        "endTime": "08:42"
+      },
+
+      {
+        "eventType": "justice",
+        "title": "Comitiva Rio Claro liberada!",
+        "summary": "Eis que a Clave da Justiça entra em ação e, em posse de uma liminar, a ComRio seguiu viagem!",
+        "startTime": "08:42",
+        "endTime": "09:00"
+      },
+
+      {
+        "eventType": "presentation",
+        "title": "Abertura",
+        "summary": "Guilherme Ceolin e Paulo Urgal abrem o primeiro Grand Pepper da história da humanidade!",
+        "startTime": "10:00",
+        "endTime": "10:10",
+        "authorName": "Guilherme Ceolin e Paulo Urgal",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gceolin+paulo.jpg"
+      },
+
+      {
+        "eventType": "presentation",
+        "title": "Acontecimentos do mês",
+        "summary": "Informativos sobre novos talentos, eventos, projetos e acontecimentos da Caiena!",
+        "startTime": "10:10",
+        "endTime": "10:20",
+        "authorName": "João Zuben",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jzuben.jpg"
+      },
+
+      {
+        "eventType": "presentation",
+        "title": "Área de Pessoas",
+        "summary": "Apresentação sobre o SERCaiena e o projeto de Plano de Carreira da Caiena.",
+        "startTime": "10:20",
+        "endTime": "11:30",
+        "authorName": "João Zuben",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jzuben.jpg"
+      },
+
+      {
+        "eventType": "lunch",
+        "title": "Almoço - Restaurante Bambuzal",
+        "summary": "O melhor da comida brasileira na Região Metropolitana de Valinhos!",
+        "startTime": "11:30",
+        "endTime": "13:30"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Pragmatic JavaScript - for world 'wild' web applications",
+        "summary": "Conceitos importantes e dicas para organizar o JavaScript de uma aplicação Rails.",
+        "startTime": "13:45",
+        "endTime": "14:25",
+        "authorName": "Eduardo Foster",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/foster.jpg"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Conceitos básicos de Android",
+        "summary": "Entenda a estrutura e o funcionamento básico de uma aplicação Android para meter a mão na massa!",
+        "startTime": "14:30",
+        "endTime": "15:10",
+        "authorName": "Gerson Donscoi",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gdonscoi.jpg"
+      },
+
+      {
+        "eventType": "coffeebreak",
+        "title": "Bréque pro Café!",
+        "summary": "\\0/ \\0/ \\0/\\0/ \\0/\\0/",
+        "startTime": "15:15",
+        "endTime": "15:45"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Apresentação - kit",
+        "summary": "Um processo de desenvolvimento que trabalha pra você!",
+        "startTime": "15:50",
+        "endTime": "16:30",
+        "authorName": "Pedro de Assis",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/pedro.jpg"
+      }
+    ]
+  },
+
+  {
+    "version": 2,
+
+    "title": "Code less, think more!",
+    "subtitle": "aareee yoouuu reaaadyy? ",
+    "date": "2015/05/26",
+    "summary": "O segundo Grand Pepper com grande surpresas! Café delicioso, um site lindo e canecas pragmáticas!",
+    "locationName": "Campinas",
+    "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-2.jpg",
+    "events": [
+
+      {
+        "eventType": "breakfast",
+        "title": "Café da Manhã",
+        "summary": "Um excepcional café da manhã cheio de ingredientes naturais!",
+        "startTime": "09:00",
+        "endTime": "09:50",
+        "authorName": "Pane Di Lana"
+      },
+
+      {
+        "eventType": "presentation",
+        "title": "Caiena Acontece",
+        "summary": "Acontecimentos da Caiena - os que já aconteceram e os que estão por vir.",
+        "startTime": "10:00",
+        "endTime": "10:20",
+        "authorName": "João Zuben",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jzuben.jpg"
+      },
+
+      {
+        "eventType": "presentation",
+        "title": "Inside Caiena - BSC",
+        "summary": "Ciclo de vida de negócio na Caiena, novidades e potencial de novos projetos, apresentação do BSC da área de negócios.",
+        "startTime": "10:30",
+        "endTime": "11:30",
+        "authorName": "Eduardo Assis",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/eduardo.jpg"
+      },
+
+      {
+        "eventType": "lunch",
+        "title": "Almoço Árabe",
+        "summary": "Comida árabe deliciosa, mas a esfiha demora mais que o Habibs!",
+        "startTime": "11:30",
+        "endTime": "13:30",
+        "authorName": "Ryad Esfihas"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Teste de integração: Conceitos básicos",
+        "summary": "Uma introdução a esse mundo de testes integrados!",
+        "startTime": "14:00",
+        "endTime": "15:00",
+        "authorName": "Mateus Sabino",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/msabino.jpg"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Como melhorei a qualidade do meu código utilizando Service Object",
+        "summary": "O objetivo dessa palestra é mostrar como Service Object pode ajudar a melhorar a qualidade do código em aplicações Rails.",
+        "startTime": "15:00",
+        "endTime": "16:00",
+        "authorName": "Paulo Urgal",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/paulo.jpg"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Dúvidas de Design",
+        "summary": "Mesmo a melhor equipe de desenvolvimento de software do hemisfério sul tem suas dúvidas de design. O objetivo da palestra é expandir a cultura de design da Caiena respondendo algumas das mais frequentes perguntas sobre o tema.",
+        "startTime": "16:00",
+        "endTime": "17:00",
+        "authorName": "Bruno Rigolino",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/brigolino.jpg"
+      }
+
+    ]
+  },
+
+  {
+    "version": 3,
+
+    "title": "Going back home!",
+    "subtitle": "supremacia rio claro",
+    "date": "2015/07/03",
+    "summary": "A terceira edição do Grand Pepper marca a volta do evento para a grande Rio Claro, além de um site muito mais lindo e um montão de surpresas!",
+    "locationName": "Rio Claro",
+    "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-3.jpg"
+ }
+]
