@@ -1,6 +1,7 @@
 package net.grandpepper.caiena.grandpepper.models;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.DeleteBuilder;
@@ -20,6 +21,10 @@ public abstract class BaseDAO<T extends IEntidade> {
         return DatabaseManager.getInstance(ctx).getHelper();
     }
 
+    public SQLiteDatabase getConnectionDataBase() throws Exception {
+        return getHelper().getWritableDatabase();
+    }
+
     protected Dao<T, Object> getConnection() throws Exception {
         return getHelper().getDAO(getEntityClass());
     }
@@ -31,6 +36,10 @@ public abstract class BaseDAO<T extends IEntidade> {
 
     public List<T> findAll() throws Exception {
         return (List<T>) getHelper().getDAO(getEntityClass()).queryForAll();
+    }
+
+    public long count() throws Exception {
+        return getHelper().getDAO(getEntityClass()).countOf();
     }
 
     public T findByPK(Object id) throws Exception {

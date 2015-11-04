@@ -10,7 +10,7 @@ import java.io.Serializable;
 @DatabaseTable(tableName = "event")
 public class Event implements Serializable, IEntidade {
 
-    @DatabaseField(id = true)
+    @DatabaseField(generatedId = true)
     public int version;
 
     @DatabaseField
@@ -33,4 +33,7 @@ public class Event implements Serializable, IEntidade {
 
     @DatabaseField
     public String endTime;
+
+    @DatabaseField(columnName = "info_version", foreign = true, foreignAutoRefresh = true, maxForeignAutoRefreshLevel = 1)
+    public Info info;
 }

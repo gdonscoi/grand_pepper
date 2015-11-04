@@ -4,16 +4,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import net.grandpepper.caiena.grandpepper.R;
-
 import net.grandpepper.caiena.grandpepper.asynctasks.AsyncTaskRegisterID;
+import net.grandpepper.caiena.grandpepper.asynctasks.AsyncTaskUpdateData;
+import net.grandpepper.caiena.grandpepper.models.InfoDAO;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 public class SplashScreenActivity extends Activity {
@@ -26,41 +26,53 @@ public class SplashScreenActivity extends Activity {
         setContentView(R.layout.activity_splash_screen);
         Context context = this;
 
-        if(checkPlayServices(context)) {
-            String regId = AndroidSystemUtil.getRegistrationId(this);
+        if (!checkPlayServices(context))
+            return;
 
-            if (regId.trim().isEmpty()) {
-                new AsyncTaskRegisterID().execute(context);
+//        String regId = AndroidSystemUtil.getRegistrationId(this);
+//        if (regId.trim().isEmpty()) {
+//            new AsyncTaskRegisterID().execute(context);
+//        }
+
+        try {
+            if (InfoDAO.getInstance(this).count() <= 0) {
+                new AsyncTaskUpdateData().execute(context);
                 return;
             }
 
-            int SPLASH_DISPLAY_LENGTH = 3000;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent mainIntent = new Intent(SplashScreenActivity.this, WebViewActivity.class);
-                    Bundle mBundle = new Bundle();
-                    mBundle.putString("url", "http://www.davidpedoneze.com/gp/");
-                    mainIntent.putExtras(mBundle);
-                    SplashScreenActivity.this.startActivity(mainIntent);
-                    SplashScreenActivity.this.finish();
-                }
-            }, SPLASH_DISPLAY_LENGTH);
+            Intent mainIntent = new Intent(context, MainActivity.class);
+            context.startActivity(mainIntent);
+
+        } catch (Exception ignored) {
+            Log.e("SplashScreenActivity", ignored.getMessage());
         }
+
+//        int SPLASH_DISPLAY_LENGTH = 3000;
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent mainIntent = new Intent(SplashScreenActivity.this, WebViewActivity.class);
+//                Bundle mBundle = new Bundle();
+//                mBundle.putString("url", "http://www.davidpedoneze.com/gp/");
+//                mainIntent.putExtras(mBundle);
+//                SplashScreenActivity.this.startActivity(mainIntent);
+//                SplashScreenActivity.this.finish();
+//            }
+//        }, SPLASH_DISPLAY_LENGTH);
     }
 
-    private boolean checkPlayServices(Context context){
+    private boolean checkPlayServices(Context context) {
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(context);
 
-        if(resultCode != ConnectionResult.SUCCESS){
-            if(GooglePlayServicesUtil.isUserRecoverableError(resultCode)){
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
                 GooglePlayServicesUtil.getErrorDialog(resultCode, SplashScreenActivity.this, PLAY_SERVICES_RESOLUTION_REQUEST).show();
-            }else{
+            } else {
                 Toast.makeText(context, "PlayServices sem suporte", Toast.LENGTH_SHORT).show();
                 ((Activity) context).finish();
             }
-            return(false);
+            return (false);
         }
-        return(true);
+        return (true);
     }
 }

@@ -39,10 +39,10 @@ public class Info implements Serializable, IEntidade {
     @SerializedName("events")
     public List<Event> eventsJson;
 
-    @DatabaseField(id = true)
+    @DatabaseField
     public String type;
 
     @Expose
     @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
-    public Collection<Event> events;
+    public Collection<Event> eventCollection;
 }

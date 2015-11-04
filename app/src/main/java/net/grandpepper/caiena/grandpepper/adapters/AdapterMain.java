@@ -15,12 +15,14 @@ import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.activity.TalksActivity;
+import net.grandpepper.caiena.grandpepper.beans.Info;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
-    private ArrayList<String> dataList;
+    private List<Info> dataList;
     private Context context;
 
     @SuppressWarnings("unchecked")
@@ -51,7 +53,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
         }
     }
 
-    public AdapterMain(ArrayList<String> repositories, Context context) {
+    public AdapterMain(List<Info> repositories, Context context) {
         this.context = context;
         this.dataList = repositories;
     }
@@ -67,7 +69,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.descriptionCard.setText(dataList.get(position));
+        holder.descriptionCard.setText(dataList.get(position).title);
     }
 
 
