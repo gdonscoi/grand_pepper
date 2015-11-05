@@ -3,6 +3,7 @@ package net.grandpepper.caiena.grandpepper.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.activity.TalksActivity;
 import net.grandpepper.caiena.grandpepper.beans.Info;
+import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +72,9 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.descriptionCard.setText(dataList.get(position).title);
+        Bitmap backgroundImage = AndroidSystemUtil.getImageExternalStorage(dataList.get(position).backgroundImagePath);
+        if(backgroundImage != null)
+            holder.imageBackgroundCard.setImageBitmap(backgroundImage);
     }
 
 

@@ -1,12 +1,17 @@
 package net.grandpepper.caiena.grandpepper.util;
 
+import android.os.Environment;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import net.grandpepper.caiena.grandpepper.beans.Info;
 
 import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -49,5 +54,31 @@ public class HttpConnectionUtil {
             urlConnection.disconnect();
         }
         return infos;
+    }
+
+    public static InputStream getImageInfo(String urlImage) throws Exception {
+        URL url = new URL(urlImage);
+        return url.openStream();
+
+    }
+
+    public static String saveImageInfo(InputStream image, String nameImage) throws Exception {
+        OutputStream output = null;
+        File storagePath = Environment.getExternalStorageDirectory();
+        try {
+            output = new FileOutputStream(new File(storagePath, nameImage));
+            byte[] buffer = new byte[1024];
+            int bytesRead = 0;
+            while ((bytesRead = image.read(buffer, 0, buffer.length)) >= 0) {
+                output.write(buffer, 0, bytesRead);
+            }
+        } catch (Exception ignore) {
+            throw new Exception("Erro ao salvar imagem.");
+        } finally {
+            if (output != null)
+                output.close();
+            image.close();
+        }
+        return "/".concat(nameImage);
     }
 }

@@ -33,14 +33,22 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
 
             for (Info info : infos) {
 
+                if (!info.backgroundImageUrl.isEmpty()) {
+                    String[] imageName = info.backgroundImageUrl.split("/");
+                    info.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(info.backgroundImageUrl),
+                            String.valueOf(info.version).concat(imageName[imageName.length-1]));
+                }
+
                 InfoDAO.getInstance(context).createOrUpdate(info);
 
                 if (info.eventsJson != null) {
                     for (Event event : info.eventsJson)
                         event.info = info;
                     EventDAO.getInstance(context).createOrUpdate(info.eventsJson);
+
                 }
             }
+
 
             db.setTransactionSuccessful();
         } catch (Exception e) {

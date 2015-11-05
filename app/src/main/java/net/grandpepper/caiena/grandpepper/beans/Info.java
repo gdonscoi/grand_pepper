@@ -36,6 +36,10 @@ public class Info implements Serializable, IEntidade {
     @DatabaseField
     public String backgroundImageUrl;
 
+    @Expose
+    @DatabaseField
+    public String backgroundImagePath;
+
     @SerializedName("events")
     public List<Event> eventsJson;
 

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.util.Log;
 
 import net.grandpepper.caiena.grandpepper.activity.SplashScreenActivity;
@@ -84,5 +87,17 @@ public class AndroidSystemUtil {
         } catch (IOException e) {
             return "";
         }
+    }
+
+    public static Bitmap getImageExternalStorage(String nameImage) {
+        String photoPath = Environment.getExternalStorageDirectory() + nameImage;
+        Bitmap photo;
+        try {
+            photo = BitmapFactory.decodeFile(photoPath);
+        } catch (Exception e) {
+            Log.e("AndroidSystemUtil" , "Erro ao carregar imagem" + e.getMessage());
+            return null;
+        }
+        return photo;
     }
 }
