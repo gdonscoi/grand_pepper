@@ -33,13 +33,15 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
         public ImageView imageBackgroundCard;
         public RelativeLayout container;
         private Context context;
+        private List<Info> dataList;
 
-        public ViewHolder(View v, Context context) {
+        public ViewHolder(View v, Context context, List<Info> dataList) {
             super(v);
             container = (RelativeLayout) v.findViewById(R.id.container_main_card);
             descriptionCard = (TextView) container.findViewById(R.id.text_description_card);
             imageBackgroundCard = (ImageView) container.findViewById(R.id.image_background_card);
             this.context = context;
+            this.dataList = dataList;
             v.setOnClickListener(this);
         }
 
@@ -47,6 +49,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
         public void onClick(View view) {
             Intent intent = new Intent(context, TalksActivity.class);
             intent.putExtra("title", ((TextView) view.findViewById(R.id.text_description_card)).getText());
+            intent.putExtra("background_image", dataList.get(getAdapterPosition()).backgroundImagePath);
             Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image");
             Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "comum_text");
             ActivityOptionsCompat options = ActivityOptionsCompat.
@@ -55,9 +58,9 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
         }
     }
 
-    public AdapterMain(List<Info> repositories, Context context) {
+    public AdapterMain(List<Info> dataList, Context context) {
         this.context = context;
-        this.dataList = repositories;
+        this.dataList = dataList;
     }
 
     @Override
@@ -66,7 +69,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.main_card_view, parent, false);
 
-        return new ViewHolder(v, context);
+        return new ViewHolder(v, context,dataList);
     }
 
     @Override
