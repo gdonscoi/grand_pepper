@@ -26,7 +26,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
         context = (Context) params[0];
         SQLiteDatabase db = null;
         try {
-            List<Info> infos = HttpConnectionUtil.getJsonInfo();
+            List<Info> infos = HttpConnectionUtil.parseJsonToInfo(HttpConnectionUtil.getJsonInfo());
 
             db = InfoDAO.getInstance(context).getConnectionDataBase();
             db.beginTransaction();
@@ -36,7 +36,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                 if (!info.backgroundImageUrl.isEmpty()) {
                     String[] imageName = info.backgroundImageUrl.split("/");
                     info.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(info.backgroundImageUrl),
-                            String.valueOf(info.version).concat(imageName[imageName.length-1]));
+                            String.valueOf(info.version).concat(imageName[imageName.length - 1]));
                 }
 
                 InfoDAO.getInstance(context).createOrUpdate(info);
@@ -48,8 +48,6 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
 
                 }
             }
-
-
             db.setTransactionSuccessful();
         } catch (Exception e) {
             Log.e("AsyncTaskUpdateData", e.getMessage());

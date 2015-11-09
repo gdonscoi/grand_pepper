@@ -3,6 +3,9 @@ package net.grandpepper.caiena.grandpepper.util;
 import android.os.Environment;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import net.grandpepper.caiena.grandpepper.beans.Info;
@@ -36,22 +39,34 @@ public class HttpConnectionUtil {
         return answer;
     }
 
-    public static List<Info> getJsonInfo() throws Exception {
-        List<Info> infos = Collections.emptyList();
-        URL url = new URL("https://raw.githubusercontent.com/gdonscoi/grand_pepper/master/data_grand_pepper.json");
+    public static JsonElement getJsonInfo() throws Exception {
+        JsonElement tradeElement;
+        URL url = new URL("http://grandpepper-assets.caiena.net/data/grandpeppers.json");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
             String answer = AndroidSystemUtil.readStream(in);
 
-            Type infoType = new TypeToken<List<Info>>() {
-            }.getType();
-            infos = new Gson().fromJson(answer, infoType);
+            JsonParser parser = new JsonParser();
+            tradeElement = parser.parse(answer);
 
         } catch (Exception e) {
             throw new Exception("Erro ao obter json.");
         } finally {
             urlConnection.disconnect();
+        }
+        return tradeElement;
+    }
+
+    public static List<Info> parseJsonToInfo(JsonElement tradeElement) throws Exception {
+        List<Info> infos;
+        try {
+            Type infoType = new TypeToken<List<Info>>() {
+            }.getType();
+            infos = new Gson().fromJson(((JsonObject) tradeElement).getAsJsonArray("grandpeppers"), infoType);
+
+        } catch (Exception e) {
+            throw new Exception("Erro ao transformar json.");
         }
         return infos;
     }
@@ -68,7 +83,7 @@ public class HttpConnectionUtil {
         try {
             output = new FileOutputStream(new File(storagePath, nameImage));
             byte[] buffer = new byte[1024];
-            int bytesRead = 0;
+            int bytesRead;
             while ((bytesRead = image.read(buffer, 0, buffer.length)) >= 0) {
                 output.write(buffer, 0, bytesRead);
             }
