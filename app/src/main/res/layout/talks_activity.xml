@@ -29,7 +29,7 @@
                 <ImageView
                     android:id="@+id/image_background_card"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_margin="0dp"
                     android:adjustViewBounds="true"
                     android:contentDescription="@android:string/untitled"
@@ -37,15 +37,25 @@
                     android:src="@drawable/galera"
                     android:transitionName="comum_image" />
 
-                <TextView
-                    android:id="@+id/text_description_card_detail"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:id="@+id/content_background_text"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    android:transitionName="comum_text"
-                    android:layout_margin="10dp"
-                    android:textColor="#ffffff"
-                    android:layout_alignBottom="@id/image_background_card"/>
+                    android:layout_alignBottom="@id/image_background_card"
+                    android:background="#80000000"
+                    android:transitionName="comum_background_text">
+
+                    <TextView
+                        android:id="@+id/text_description_card_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textColor="#ffffff"
+                        android:textSize="26sp"
+                        android:transitionName="comum_text" />
+
+                </RelativeLayout>
+
             </RelativeLayout>
 
 

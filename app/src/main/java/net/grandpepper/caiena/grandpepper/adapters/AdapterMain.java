@@ -52,8 +52,10 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
             intent.putExtra("background_image", dataList.get(getAdapterPosition()).backgroundImagePath);
             Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image");
             Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "comum_text");
+            Pair<View, String> p3 = Pair.create(view.findViewById(R.id.content_background_text), "comum_background_text");
+
             ActivityOptionsCompat options = ActivityOptionsCompat.
-                    makeSceneTransitionAnimation((Activity) context, p1, p2);
+                    makeSceneTransitionAnimation((Activity) context, p1, p2,p3);
             context.startActivity(intent, options.toBundle());
         }
     }
