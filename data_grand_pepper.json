@@ -561,7 +561,8 @@
     }
   ],
 
-  "callForPeppers": {
+  "callForPeppers": [
+    {
       "title" : "Call for Peppers",
       "subtitle" : "subtitle text",
       "contacts":[
@@ -575,7 +576,8 @@
         }
       ]
 
-    },
+    }
+    ],
 
   "locations" : [
     {
