@@ -2,9 +2,9 @@ package net.grandpepper.caiena.grandpepper.models;
 
 import android.content.Context;
 
-import net.grandpepper.caiena.grandpepper.beans.Info;
+import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 
-public class InfoDAO extends BaseDAO<Info> {
+public class InfoDAO extends BaseDAO<GrandPepper> {
 
     private static InfoDAO dao;
 

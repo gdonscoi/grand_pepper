@@ -7,16 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.transition.TransitionInflater;
 import android.util.Log;
-import android.view.Menu;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.adapters.AdapterMain;
-import net.grandpepper.caiena.grandpepper.beans.Info;
+import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.models.InfoDAO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        List<Info> arrayList = null;
+        List<GrandPepper> arrayList = null;
         try {
             arrayList = InfoDAO.getInstance(this).findAll();
         } catch (Exception e) {

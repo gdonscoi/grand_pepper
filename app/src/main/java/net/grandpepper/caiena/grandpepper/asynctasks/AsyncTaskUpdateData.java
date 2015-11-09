@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import net.grandpepper.caiena.grandpepper.activity.MainActivity;
 import net.grandpepper.caiena.grandpepper.beans.Event;
-import net.grandpepper.caiena.grandpepper.beans.Info;
+import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.models.EventDAO;
 import net.grandpepper.caiena.grandpepper.models.InfoDAO;
 import net.grandpepper.caiena.grandpepper.util.HttpConnectionUtil;
@@ -26,25 +26,25 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
         context = (Context) params[0];
         SQLiteDatabase db = null;
         try {
-            List<Info> infos = HttpConnectionUtil.parseJsonToInfo(HttpConnectionUtil.getJsonInfo());
+            List<GrandPepper> grandPeppers = HttpConnectionUtil.parseJsonToInfo(HttpConnectionUtil.getJsonInfo());
 
             db = InfoDAO.getInstance(context).getConnectionDataBase();
             db.beginTransaction();
 
-            for (Info info : infos) {
+            for (GrandPepper grandPepper : grandPeppers) {
 
-                if (!info.backgroundImageUrl.isEmpty()) {
-                    String[] imageName = info.backgroundImageUrl.split("/");
-                    info.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(info.backgroundImageUrl),
-                            String.valueOf(info.version).concat(imageName[imageName.length - 1]));
+                if (!grandPepper.backgroundImageUrl.isEmpty()) {
+                    String[] imageName = grandPepper.backgroundImageUrl.split("/");
+                    grandPepper.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.backgroundImageUrl),
+                            String.valueOf(grandPepper.version).concat(imageName[imageName.length - 1]));
                 }
 
-                InfoDAO.getInstance(context).createOrUpdate(info);
+                InfoDAO.getInstance(context).createOrUpdate(grandPepper);
 
-                if (info.eventsJson != null) {
-                    for (Event event : info.eventsJson)
-                        event.info = info;
-                    EventDAO.getInstance(context).createOrUpdate(info.eventsJson);
+                if (grandPepper.eventsJson != null) {
+                    for (Event event : grandPepper.eventsJson)
+                        event.grandPepper = grandPepper;
+                    EventDAO.getInstance(context).createOrUpdate(grandPepper.eventsJson);
 
                 }
             }

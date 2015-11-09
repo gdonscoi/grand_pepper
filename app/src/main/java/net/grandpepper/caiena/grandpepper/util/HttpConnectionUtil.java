@@ -8,7 +8,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
-import net.grandpepper.caiena.grandpepper.beans.Info;
+import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -18,7 +18,6 @@ import java.io.OutputStream;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Collections;
 import java.util.List;
 
 public class HttpConnectionUtil {
@@ -41,7 +40,8 @@ public class HttpConnectionUtil {
 
     public static JsonElement getJsonInfo() throws Exception {
         JsonElement tradeElement;
-        URL url = new URL("http://grandpepper-assets.caiena.net/data/grandpeppers.json");
+//        URL url = new URL("http://grandpepper-assets.caiena.net/data/grandpeppers.json");
+        URL url = new URL("https://raw.githubusercontent.com/gdonscoi/grand_pepper/master/data_grand_pepper.json");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
@@ -58,17 +58,17 @@ public class HttpConnectionUtil {
         return tradeElement;
     }
 
-    public static List<Info> parseJsonToInfo(JsonElement tradeElement) throws Exception {
-        List<Info> infos;
+    public static List<GrandPepper> parseJsonToInfo(JsonElement tradeElement) throws Exception {
+        List<GrandPepper> grandPeppers;
         try {
-            Type infoType = new TypeToken<List<Info>>() {
+            Type infoType = new TypeToken<List<GrandPepper>>() {
             }.getType();
-            infos = new Gson().fromJson(((JsonObject) tradeElement).getAsJsonArray("grandpeppers"), infoType);
+            grandPeppers = new Gson().fromJson(((JsonObject) tradeElement).getAsJsonArray("grandpeppers"), infoType);
 
         } catch (Exception e) {
             throw new Exception("Erro ao transformar json.");
         }
-        return infos;
+        return grandPeppers;
     }
 
     public static InputStream getImageInfo(String urlImage) throws Exception {

@@ -10,7 +10,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import net.grandpepper.caiena.grandpepper.beans.Event;
-import net.grandpepper.caiena.grandpepper.beans.Info;
+import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.models.IEntidade;
 
 import java.sql.SQLException;
@@ -37,7 +37,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Log.i(DatabaseHelper.class.getName(), "onCreate Database");
 
             Log.i(DatabaseHelper.class.getName(), "Create table Info");
-            TableUtils.createTable(connectionSource, Info.class);
+            TableUtils.createTable(connectionSource, GrandPepper.class);
             Log.i(DatabaseHelper.class.getName(), "Create table Event");
             TableUtils.createTable(connectionSource, Event.class);
 
@@ -52,7 +52,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Log.i(DatabaseHelper.class.getName(), "onUpgrade Database");
 
             Log.i(DatabaseHelper.class.getName(), "Update table Info");
-            TableUtils.dropTable(connectionSource, Info.class, true);
+            TableUtils.dropTable(connectionSource, GrandPepper.class, true);
 
             Log.i(DatabaseHelper.class.getName(), "Update table Event");
             TableUtils.dropTable(connectionSource, Event.class, true);

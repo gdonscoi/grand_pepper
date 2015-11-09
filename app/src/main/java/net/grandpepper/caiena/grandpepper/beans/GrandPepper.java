@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @DatabaseTable(tableName = "info")
-public class Info implements Serializable, IEntidade {
+public class GrandPepper implements Serializable, IEntidade {
 
     @DatabaseField(id = true)
     public int version;

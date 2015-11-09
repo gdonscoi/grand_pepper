@@ -16,14 +16,14 @@ import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
-import net.grandpepper.caiena.grandpepper.beans.Info;
+import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 import java.util.List;
 
 public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
-    private List<Info> dataList;
+    private List<GrandPepper> dataList;
     private Context context;
 
     @SuppressWarnings("unchecked")
@@ -32,9 +32,9 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
         public ImageView imageBackgroundCard;
         public RelativeLayout container;
         private Context context;
-        private List<Info> dataList;
+        private List<GrandPepper> dataList;
 
-        public ViewHolder(View v, Context context, List<Info> dataList) {
+        public ViewHolder(View v, Context context, List<GrandPepper> dataList) {
             super(v);
             container = (RelativeLayout) v.findViewById(R.id.container_main_card);
             descriptionCard = (TextView) container.findViewById(R.id.text_description_card);
@@ -59,7 +59,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
         }
     }
 
-    public AdapterMain(List<Info> dataList, Context context) {
+    public AdapterMain(List<GrandPepper> dataList, Context context) {
         this.context = context;
         this.dataList = dataList;
     }
