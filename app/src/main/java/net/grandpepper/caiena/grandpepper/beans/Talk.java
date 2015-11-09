@@ -1,22 +1,20 @@
 package net.grandpepper.caiena.grandpepper.beans;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import net.grandpepper.caiena.grandpepper.models.IEntidade;
+import java.util.Collection;
+import java.util.List;
 
-import java.io.Serializable;
-
-@DatabaseTable(tableName = "event")
-public class Event implements Serializable, IEntidade {
+@DatabaseTable(tableName = "talk")
+public class Talk {
 
     @Expose
     @DatabaseField(generatedId = true)
     public int id;
-
-    @DatabaseField
-    public String eventType;
 
     @DatabaseField
     public String title;
@@ -24,19 +22,14 @@ public class Event implements Serializable, IEntidade {
     @DatabaseField
     public String subtitle;
 
-    @DatabaseField
-    public String date;
-
-    @DatabaseField
-    public String summary;
-
-    @DatabaseField
-    public String startTime;
-
-    @DatabaseField
-    public String endTime;
+    @Expose
+    @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
+    public Collection<Author> authorCollection;
 
     @Expose
     @DatabaseField(columnName = "grandPepper_version", foreign = true, foreignAutoRefresh = true, maxForeignAutoRefreshLevel = 1)
     public GrandPepper grandPepper;
+
+    @SerializedName("authors")
+    public List<Author> authorsJson;
 }
