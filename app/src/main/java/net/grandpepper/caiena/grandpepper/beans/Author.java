@@ -8,7 +8,7 @@ import net.grandpepper.caiena.grandpepper.models.IEntidade;
 
 import java.io.Serializable;
 
-@DatabaseTable(tableName = "contact")
+@DatabaseTable(tableName = "author")
 public class Author implements Serializable, IEntidade {
 
     @Expose
