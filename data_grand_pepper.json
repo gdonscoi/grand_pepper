@@ -565,7 +565,7 @@
     {
       "title" : "Call for Peppers",
       "subtitle" : "subtitle text"
-      "emails"[
+      "contacts"[
         {
           "name" : "Teste 1",
           "email" : "email1@teste.com"
