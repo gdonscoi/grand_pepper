@@ -1,3 +1,8 @@
+{
+  "updated_at": 201509132270,
+
+  "grandpeppers":
+
 [
   {
     "version": 1,
@@ -211,6 +216,411 @@
     "date": "2015/07/03",
     "summary": "A terceira edição do Grand Pepper marca a volta do evento para a grande Rio Claro, além de um site muito mais lindo e um montão de surpresas!",
     "locationName": "Rio Claro",
-    "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-3.jpg"
- }
+    "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-3.jpg",
+
+    "events": [
+
+      {
+        "eventType": "breakfast",
+        "title": "Café da Manhã",
+        "summary": "Um excepcional café da manhã com uma linda vista para a natureza rioclarense!",
+        "startTime": "09:00",
+        "endTime": "10:00",
+        "authorName": "Restaurante Tetelele"
+      },
+
+      {
+        "eventType": "presentation",
+        "title": "Caiena Acontece",
+        "summary": "Acontecimentos da Caiena - os que já aconteceram e os que estão por vir.",
+        "startTime": "10:00",
+        "endTime": "10:30",
+        "authorName": "João Zuben",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jzuben.jpg"
+      },
+
+      {
+        "eventType": "presentation",
+        "title": "Master Class",
+        "summary": "Sensibilizando e conscientizando.",
+        "startTime": "10:30",
+        "endTime": "12:00",
+        "authorName": "José Edson",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jedson.jpg"
+      },
+
+      {
+        "eventType": "lunch",
+        "title": "Almoço - Restaurante Tetelele",
+        "summary": "Deliciosa Paella Caipira para recarregar as energias da turma e pudim de sobremesa!",
+        "startTime": "12:00",
+        "endTime": "13:30"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "SOLID",
+        "summary": "Princípios de design de software orientado a objetos.",
+        "startTime": "13:30",
+        "endTime": "14:30",
+        "authorName": "Daniel Teixeira",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/dteixeira.jpg"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Pingame",
+        "summary": "Mais que um jogo: uma iniciativa para curiosos!",
+        "startTime": "14:30",
+        "endTime": "15:00",
+        "authorName": "Bruno Rigolino e Gerson Donscoi",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/brigolino+gdonscoi.jpg"
+      },
+
+      {
+        "eventType": "coffeebreak",
+        "title": "Bréque pro Café!",
+        "summary": "\\0/ \\0/ \\0/",
+        "startTime": "15:00",
+        "endTime": "15:30"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Fun Ruby",
+        "summary": "Conceitos de programação funcional em Ruby.",
+        "startTime": "15:30",
+        "endTime": "16:30",
+        "authorName": "Guilherme Carlos",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gcarlos.jpg"
+      },
+
+      {
+        "eventType": "techtalk",
+        "title": "Qualidade",
+        "summary": "Melhorando a perfeição.",
+        "startTime": "16:30",
+        "endTime": "17:00",
+        "authorName": "Bruno Rigolino, Guilherme Costa, Paulo Urgal e Rodrigo Trentini",
+        "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/brigolino+gcosta+paulo+rtrentini.jpg"
+      }
+    ]
+  },
+
+{
+  "version": 4,
+
+  "title": "Legendary!",
+  "subtitle": "It's going to be legen- wait for it -dary!",
+  "date": "2015/09/04",
+  "summary": "A quarta edição do Grand Pepper traz o lado histórico da Caiena e as projeções para o futuro!",
+  "locationName": "Campinas",
+  "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-4.png",
+
+  "events": [
+
+    {
+      "eventType": "breakfast",
+      "title": "Café da Manhã",
+      "summary": "Um banquete que saciará até mesmo os talentos mais gulosos!",
+      "startTime": "09:00",
+      "endTime": "09:50",
+      "authorName": "Abelha Gulosa"
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Abertura",
+      "summary": "Equipe Lendária dará início ao Grand Pepper IV",
+      "startTime": "10:00",
+      "endTime": "10:10",
+      "authorName": "Daniel Teixeira, Gerson Donscoi, Pedro de Assis, Pedro Naponoceno",
+      "authorAvatarUrl": ""
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Caiena Acontece",
+      "summary": "Acontecimentos da Caiena - muitas novidades por aí",
+      "startTime": "10:10",
+      "endTime": "10:30",
+      "authorName": "João von Zuben",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jzuben.jpg"
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Jogando com a Mente Aberta",
+      "summary": "Os jogos, especialmente em sua vertente eletrônica, são um dos fenômenos mais efervescentes de nosso tempo. Entretanto, ao mesmo tempo, demonstram ser um dos objetos menos conhecidos dentro de empresas, da Academia e de outras organizações. Nós os jogamos (loucamente), isso é certo. Mas qual é nossa relação com eles? Em que medida nossa visão de mundo governa a maneira como os apreciamos? Em que grau nossa mentalidade amplia - ou restringe - as possibilidades que enxergamos nos jogos?",
+      "startTime": "10:30",
+      "endTime": "12:00",
+      "authorName": "Fabiano Onça",
+      "authorAvatarUrl": ""
+    },
+
+    {
+      "eventType": "lunch",
+      "title": "Almoço @ Outback",
+      "summary": "Inesquecível!",
+      "startTime": "12:00",
+      "endTime": "13:30"
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Panorama",
+      "summary": "Uma visão sobre o momento atual e o futuro da Caiena",
+      "startTime": "13:30",
+      "endTime": "13:45",
+      "authorName": "Eduardo Assis",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/eduardo.jpg"
+    },
+
+    {
+      "eventType": "techtalk",
+      "title": "Ansible",
+      "summary": "O que, por que, quando, como e onde",
+      "startTime": "13:45",
+      "endTime": "14:25",
+      "authorName": "Guilherme Ceolin",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gceolin.jpg"
+    },
+
+    {
+      "eventType": "techtalk",
+      "title": "Autocoach_Automatic",
+      "summary": "Instigar o auto-aperfeiçoamento constante da audiência por meio do autoconhecimento, aplicando o uso de ferramentas e práticas de coaching.",
+      "startTime": "14:30",
+      "endTime": "14:45",
+      "authorName": "Alexandre Ferreira",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/aferreira.jpg"
+    },
+
+    {
+      "eventType": "techtalk",
+      "title": "Chocolate com Pimenta",
+      "summary": "Apresentação sobre os aspectos gerais para o desenvolvimento de aplicações para iOS.",
+      "startTime": "14:50",
+      "endTime": "15:30",
+      "authorName": "Eduardo Foster",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/foster.jpg"
+    },
+
+    {
+      "eventType": "coffeebreak",
+      "title": "Let's have a break!",
+      "summary": "\\õ/ \\õ/ \\õ/",
+      "startTime": "15:30",
+      "endTime": "16:00"
+    },
+
+    {
+      "eventType": "techtalk",
+      "title": "Southern hemisphere conquerors",
+      "summary": "Metodologia e Produtividade para a conquista",
+      "startTime": "16:00",
+      "endTime": "16:40",
+      "authorName": "Caio Marques",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/marques.jpg"
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Fechamento",
+      "summary": "Para fechar o dia com chave de ouro e Happy Hour!!!!",
+      "startTime": "16:45",
+      "endTime": "17:00",
+      "authorName": "Daniel Teixeira, Gerson Doscoi, Pedro de Assis, Pedro Naponoceno",
+      "authorAvatarUrl": ""
+    },
+    {
+  "version": 5,
+
+  "title": "Grand Pepper V",
+  "subtitle": "It's going to be legen- wait for it -dary!",
+  "date": "2015/12/??",
+  "summary": "A quarta edição do Grand Pepper traz o lado histórico da Caiena e as projeções para o futuro!",
+  "locationName": "Campinas",
+  "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-4.png",
+
+  "events": [
+
+    {
+      "eventType": "breakfast",
+      "title": "Café da Manhã",
+      "summary": "Um banquete que saciará até mesmo os talentos mais gulosos!",
+      "startTime": "09:00",
+      "endTime": "09:50",
+      "authorName": "Abelha Gulosa"
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Abertura",
+      "summary": "Equipe Lendária dará início ao Grand Pepper IV",
+      "startTime": "10:00",
+      "endTime": "10:10",
+      "authorName": "Daniel Teixeira, Gerson Donscoi, Pedro de Assis, Pedro Naponoceno",
+      "authorAvatarUrl": ""
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Caiena Acontece",
+      "summary": "Acontecimentos da Caiena - muitas novidades por aí",
+      "startTime": "10:10",
+      "endTime": "10:30",
+      "authorName": "João von Zuben",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jzuben.jpg"
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Jogando com a Mente Aberta",
+      "summary": "Os jogos, especialmente em sua vertente eletrônica, são um dos fenômenos mais efervescentes de nosso tempo. Entretanto, ao mesmo tempo, demonstram ser um dos objetos menos conhecidos dentro de empresas, da Academia e de outras organizações. Nós os jogamos (loucamente), isso é certo. Mas qual é nossa relação com eles? Em que medida nossa visão de mundo governa a maneira como os apreciamos? Em que grau nossa mentalidade amplia - ou restringe - as possibilidades que enxergamos nos jogos?",
+      "startTime": "10:30",
+      "endTime": "12:00",
+      "authorName": "Fabiano Onça",
+      "authorAvatarUrl": ""
+    },
+
+    {
+      "eventType": "lunch",
+      "title": "Almoço @ Outback",
+      "summary": "Inesquecível!",
+      "startTime": "12:00",
+      "endTime": "13:30"
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Panorama",
+      "summary": "Uma visão sobre o momento atual e o futuro da Caiena",
+      "startTime": "13:30",
+      "endTime": "13:45",
+      "authorName": "Eduardo Assis",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/eduardo.jpg"
+    },
+
+    {
+      "eventType": "techtalk",
+      "title": "Ansible",
+      "summary": "O que, por que, quando, como e onde",
+      "startTime": "13:45",
+      "endTime": "14:25",
+      "authorName": "Guilherme Ceolin",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gceolin.jpg"
+    },
+
+    {
+      "eventType": "techtalk",
+      "title": "Autocoach_Automatic",
+      "summary": "Instigar o auto-aperfeiçoamento constante da audiência por meio do autoconhecimento, aplicando o uso de ferramentas e práticas de coaching.",
+      "startTime": "14:30",
+      "endTime": "14:45",
+      "authorName": "Alexandre Ferreira",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/aferreira.jpg"
+    },
+
+    {
+      "eventType": "techtalk",
+      "title": "Chocolate com Pimenta",
+      "summary": "Apresentação sobre os aspectos gerais para o desenvolvimento de aplicações para iOS.",
+      "startTime": "14:50",
+      "endTime": "15:30",
+      "authorName": "Eduardo Foster",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/foster.jpg"
+    },
+
+    {
+      "eventType": "coffeebreak",
+      "title": "Let's have a break!",
+      "summary": "\\õ/ \\õ/ \\õ/",
+      "startTime": "15:30",
+      "endTime": "16:00"
+    },
+
+    {
+      "eventType": "techtalk",
+      "title": "Southern hemisphere conquerors",
+      "summary": "Metodologia e Produtividade para a conquista",
+      "startTime": "16:00",
+      "endTime": "16:40",
+      "authorName": "Caio Marques",
+      "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/marques.jpg"
+    },
+
+    {
+      "eventType": "presentation",
+      "title": "Fechamento",
+      "summary": "Para fechar o dia com chave de ouro e Happy Hour!!!!",
+      "startTime": "16:45",
+      "endTime": "17:00",
+      "authorName": "Daniel Teixeira, Gerson Doscoi, Pedro de Assis, Pedro Naponoceno",
+      "authorAvatarUrl": ""
+    }
+  ],
+
+  "callForPeppers": [
+    {
+      "title" : "Call for Peppers",
+      "subtitle" : "subtitle text"
+      "emails"[
+        {
+          "name" : "Teste 1",
+          "email" : "email1@teste.com"
+        },
+        {
+          "name" : "Teste 2",
+          "email" : "email2@teste.com"
+        }
+      ]
+
+    }
+  ],
+
+  "location" : [
+    {
+      "name" : "Shopping Iguatemi",
+      "action" : "Evento",
+      "latlong" : "-22.893655, -47.027731"
+    },
+    {
+      "name" : "Outback - Shopping Iguatemi",
+      "action" : "Almoço",
+      "latlong" : "-22.893655, -47.027731"
+    }
+  ],
+
+  "talks" : [
+    {
+      "title" : "Nome da palestra 1",
+      "subtitle" : "Descrição da palestra 1",
+      "authors" : [
+        {
+          "name" : "Gerson Donscoi Junior",
+          "occupation" : "Eng. de aplicativos em Comp.",
+          "authorImageUrl" : "https://avatars0.githubusercontent.com/u/2416654?v=3&s=460"
+        }
+      ]
+    },
+    {
+      "title" : "Nome da palestra 2",
+      "subtitle" : "Descrição da palestra 2",
+      "authors" : [
+      {
+          "name" : "Gerson Donscoi Junior",
+          "occupation" : "Eng. de aplicativos em Comp.",
+          "authorImageUrl" : "https://avatars0.githubusercontent.com/u/2416654?v=3&s=460"
+        },
+        {
+          "name" : "Eduardo Foster",
+          "occupation" : "Android Developer",
+          "authorImageUrl" : "https://avatars3.githubusercontent.com/u/2751160?v=3&s=460"
+        }
+      ]
+    }
+  ],
+}
 ]
+}
