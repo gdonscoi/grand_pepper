@@ -579,7 +579,7 @@
     }
   ],
 
-  "location" : [
+  "locations" : [
     {
       "name" : "Shopping Iguatemi",
       "action" : "Evento",
