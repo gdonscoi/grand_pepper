@@ -4,8 +4,12 @@ import com.google.gson.annotations.Expose;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import net.grandpepper.caiena.grandpepper.models.IEntidade;
+
+import java.io.Serializable;
+
 @DatabaseTable(tableName = "location")
-public class Location {
+public class Location implements Serializable, IEntidade {
 
     @Expose
     @DatabaseField(generatedId = true)

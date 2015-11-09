@@ -9,8 +9,13 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import net.grandpepper.caiena.grandpepper.beans.Author;
+import net.grandpepper.caiena.grandpepper.beans.CallForPeppers;
+import net.grandpepper.caiena.grandpepper.beans.Contact;
 import net.grandpepper.caiena.grandpepper.beans.Event;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
+import net.grandpepper.caiena.grandpepper.beans.Location;
+import net.grandpepper.caiena.grandpepper.beans.Talk;
 import net.grandpepper.caiena.grandpepper.models.IEntidade;
 
 import java.sql.SQLException;
@@ -40,6 +45,17 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, GrandPepper.class);
             Log.i(DatabaseHelper.class.getName(), "Create table Event");
             TableUtils.createTable(connectionSource, Event.class);
+            Log.i(DatabaseHelper.class.getName(), "Create table Author");
+            TableUtils.createTable(connectionSource, Author.class);
+            Log.i(DatabaseHelper.class.getName(), "Create table CallForPeppers");
+            TableUtils.createTable(connectionSource, CallForPeppers.class);
+            Log.i(DatabaseHelper.class.getName(), "Create table Contact");
+            TableUtils.createTable(connectionSource, Contact.class);
+            Log.i(DatabaseHelper.class.getName(), "Create table Location");
+            TableUtils.createTable(connectionSource, Location.class);
+            Log.i(DatabaseHelper.class.getName(), "Create table Talk");
+            TableUtils.createTable(connectionSource, Talk.class);
+
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -56,6 +72,21 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
             Log.i(DatabaseHelper.class.getName(), "Update table Event");
             TableUtils.dropTable(connectionSource, Event.class, true);
+
+            Log.i(DatabaseHelper.class.getName(), "Update table Author");
+            TableUtils.dropTable(connectionSource, Author.class, true);
+
+            Log.i(DatabaseHelper.class.getName(), "Update table CallForPeppers");
+            TableUtils.dropTable(connectionSource, CallForPeppers.class, true);
+
+            Log.i(DatabaseHelper.class.getName(), "Update table Contact");
+            TableUtils.dropTable(connectionSource, Contact.class, true);
+
+            Log.i(DatabaseHelper.class.getName(), "Update table Location");
+            TableUtils.dropTable(connectionSource, Location.class, true);
+
+            Log.i(DatabaseHelper.class.getName(), "Update table Talk");
+            TableUtils.dropTable(connectionSource, Talk.class, true);
 
             onCreate(db, connectionSource);
         } catch (android.database.SQLException | SQLException e) {

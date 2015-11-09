@@ -6,11 +6,14 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import net.grandpepper.caiena.grandpepper.models.IEntidade;
+
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
 @DatabaseTable(tableName = "callForPeppers")
-public class CallForPeppers {
+public class CallForPeppers implements Serializable, IEntidade {
 
     @Expose
     @DatabaseField(generatedId = true)
