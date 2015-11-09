@@ -564,7 +564,7 @@
   "callForPeppers": [
     {
       "title" : "Call for Peppers",
-      "subtitle" : "subtitle text"
+      "subtitle" : "subtitle text",
       "contacts"[
         {
           "name" : "Teste 1",
