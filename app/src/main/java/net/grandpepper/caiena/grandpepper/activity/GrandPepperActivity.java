@@ -13,12 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
-import net.grandpepper.caiena.grandpepper.adapters.AdapterTalks;
+import net.grandpepper.caiena.grandpepper.adapters.AdapterGrandPepper;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 import java.util.ArrayList;
 
-public class TalksActivity extends AppCompatActivity {
+public class GrandPepperActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class TalksActivity extends AppCompatActivity {
         arrayList.add("Búllêts Trentas");
         arrayList.add("Largatêra Ponta esquerda");
         arrayList.add("Blla blla bla ");
-        recList.setAdapter(new AdapterTalks(arrayList, this));
+        recList.setAdapter(new AdapterGrandPepper(arrayList, this));
     }
 
     @Override

@@ -15,11 +15,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
-import net.grandpepper.caiena.grandpepper.activity.TalksActivity;
+import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
 import net.grandpepper.caiena.grandpepper.beans.Info;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
@@ -47,7 +46,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> {
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(context, TalksActivity.class);
+            Intent intent = new Intent(context, GrandPepperActivity.class);
             intent.putExtra("title", ((TextView) view.findViewById(R.id.text_description_card)).getText());
             intent.putExtra("background_image", dataList.get(getAdapterPosition()).backgroundImagePath);
             Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image");

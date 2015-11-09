@@ -57,7 +57,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 
-        <activity android:name=".activity.TalksActivity"
+        <activity android:name=".activity.GrandPepperActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 

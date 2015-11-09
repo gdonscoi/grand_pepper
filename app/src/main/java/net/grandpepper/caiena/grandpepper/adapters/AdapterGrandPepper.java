@@ -17,7 +17,7 @@ import net.grandpepper.caiena.grandpepper.activity.DetailTalksActivity;
 
 import java.util.ArrayList;
 
-public class AdapterTalks extends RecyclerView.Adapter<AdapterTalks.ViewHolder> {
+public class AdapterGrandPepper extends RecyclerView.Adapter<AdapterGrandPepper.ViewHolder> {
 
     private ArrayList<String> dataList;
     private Context context;
@@ -48,13 +48,13 @@ public class AdapterTalks extends RecyclerView.Adapter<AdapterTalks.ViewHolder> 
         }
     }
 
-    public AdapterTalks(ArrayList<String> repositories, Context context) {
+    public AdapterGrandPepper(ArrayList<String> repositories, Context context) {
         this.context = context;
         this.dataList = repositories;
     }
 
     @Override
-    public AdapterTalks.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public AdapterGrandPepper.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                       int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.talks_card_view, parent, false);
