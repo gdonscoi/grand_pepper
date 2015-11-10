@@ -1,6 +1,7 @@
 package net.grandpepper.caiena.grandpepper.util;
 
 import android.os.Environment;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -13,6 +14,7 @@ import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Type;
@@ -71,13 +73,21 @@ public class HttpConnectionUtil {
         return grandPeppers;
     }
 
-    public static InputStream getImageInfo(String urlImage) throws Exception {
-        URL url = new URL(urlImage);
-        return url.openStream();
-
+    public static InputStream getImageInfo(String urlImage) {
+        InputStream inputStreamURL;
+        try {
+            URL url = new URL(urlImage);
+            inputStreamURL = url.openStream();
+        } catch (Exception e) {
+            Log.e("HttpConnectionUtil", "Erro ao conectar url.");
+            return null;
+        }
+        return inputStreamURL;
     }
 
-    public static String saveImageInfo(InputStream image, String nameImage) throws Exception {
+    public static String saveImageInfo(InputStream image, String nameImage) throws IOException {
+        if (image == null)
+            return "";
         OutputStream output = null;
         File storagePath = Environment.getExternalStorageDirectory();
         try {
@@ -88,7 +98,8 @@ public class HttpConnectionUtil {
                 output.write(buffer, 0, bytesRead);
             }
         } catch (Exception ignore) {
-            throw new Exception("Erro ao salvar imagem.");
+            Log.e("HttpConnectionUtil", "Erro ao salvar imagem.");
+            return "";
         } finally {
             if (output != null)
                 output.close();

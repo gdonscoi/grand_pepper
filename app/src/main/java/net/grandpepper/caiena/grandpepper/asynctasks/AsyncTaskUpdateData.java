@@ -43,17 +43,34 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
 
             for (GrandPepper grandPepper : grandPeppers) {
 
-                if (!grandPepper.backgroundImageUrl.isEmpty()) {
+                if (grandPepper.backgroundImageUrl != null && !grandPepper.backgroundImageUrl.isEmpty()) {
                     String[] imageName = grandPepper.backgroundImageUrl.split("/");
                     grandPepper.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.backgroundImageUrl),
                             String.valueOf(grandPepper.version).concat(imageName[imageName.length - 1]));
                 }
 
+                if (grandPepper.locationBackgroundImageUrl != null && !grandPepper.locationBackgroundImageUrl.isEmpty()) {
+                    String[] imageNameLocation = grandPepper.locationBackgroundImageUrl.split("/");
+                    grandPepper.locationBackgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.locationBackgroundImageUrl),
+                            String.valueOf(grandPepper.version).concat(imageNameLocation[imageNameLocation.length - 1]));
+                }
+
+                if (grandPepper.talksBackgroundImageUrl != null && !grandPepper.talksBackgroundImageUrl.isEmpty()) {
+                    String[] imageNameTalks = grandPepper.talksBackgroundImageUrl.split("/");
+                    grandPepper.talksBackgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.talksBackgroundImageUrl),
+                            String.valueOf(grandPepper.version).concat(imageNameTalks[imageNameTalks.length - 1]));
+                }
                 InfoDAO.getInstance(context).createOrUpdate(grandPepper);
 
                 if (grandPepper.eventsJson != null) {
-                    for (Event event : grandPepper.eventsJson)
+                    for (Event event : grandPepper.eventsJson) {
                         event.grandPepper = grandPepper;
+                        if (event.authorAvatarUrl != null && !event.authorAvatarUrl.isEmpty()) {
+                            String[] imageName = event.authorAvatarUrl.split("/");
+                            event.authorAvatarPath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(event.authorAvatarUrl),
+                                    String.valueOf(grandPepper.version).concat(imageName[imageName.length - 1]));
+                        }
+                    }
                     EventDAO.getInstance(context).createOrUpdate(grandPepper.eventsJson);
                 }
 
@@ -84,8 +101,14 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                         TalkDAO.getInstance(context).createOrUpdate(talk);
 
                         if (talk.authorsJson != null) {
-                            for (Author author : talk.authorsJson)
+                            for (Author author : talk.authorsJson) {
                                 author.talk = talk;
+                                if (author.authorAvatarUrl != null && !author.authorAvatarUrl.isEmpty()) {
+                                    String[] imageName = author.authorAvatarUrl.split("/");
+                                    author.authorAvatarPath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(author.authorAvatarUrl),
+                                            String.valueOf(author.name).concat(imageName[imageName.length - 1]));
+                                }
+                            }
                             AuthorDAO.getInstance(context).createOrUpdate(talk.authorsJson);
                         }
                     }

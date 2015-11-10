@@ -22,11 +22,11 @@ public class Author implements Serializable, IEntidade {
     public String occupation;
 
     @DatabaseField
-    public String authorImageUrl;
+    public String authorAvatarUrl;
 
     @Expose
     @DatabaseField
-    public String authorImagePath;
+    public String authorAvatarPath;
 
     @Expose
     @DatabaseField(columnName = "talk_id", foreign = true, foreignAutoRefresh = true, maxForeignAutoRefreshLevel = 1)
