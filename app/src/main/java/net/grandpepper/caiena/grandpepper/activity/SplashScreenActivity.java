@@ -11,10 +11,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
 import net.grandpepper.caiena.grandpepper.R;
-import net.grandpepper.caiena.grandpepper.asynctasks.AsyncTaskRegisterID;
 import net.grandpepper.caiena.grandpepper.asynctasks.AsyncTaskUpdateData;
 import net.grandpepper.caiena.grandpepper.models.InfoDAO;
-import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 public class SplashScreenActivity extends Activity {
 
@@ -40,7 +38,7 @@ public class SplashScreenActivity extends Activity {
                 return;
             }
 
-            Intent mainIntent = new Intent(context, MainActivity.class);
+            Intent mainIntent = new Intent(context, GrandPepperActivity.class);
             context.startActivity(mainIntent);
 
         } catch (Exception ignored) {

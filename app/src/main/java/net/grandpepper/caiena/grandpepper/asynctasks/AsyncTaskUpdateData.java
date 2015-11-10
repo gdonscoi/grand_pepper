@@ -8,7 +8,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import net.grandpepper.caiena.grandpepper.activity.MainActivity;
+import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
 import net.grandpepper.caiena.grandpepper.beans.Author;
 import net.grandpepper.caiena.grandpepper.beans.CallForPeppers;
 import net.grandpepper.caiena.grandpepper.beans.Contact;
@@ -131,7 +131,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
     @Override
     public void onPostExecute(Boolean msg) {
         if (msg) {
-            Intent mainIntent = new Intent(context, MainActivity.class);
+            Intent mainIntent = new Intent(context, GrandPepperActivity.class);
             context.startActivity(mainIntent);
             ((Activity) context).finish();
             return;

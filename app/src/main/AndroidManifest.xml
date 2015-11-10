@@ -53,11 +53,11 @@
 
         <service android:name=".services.GcmIntentService"/>
 
-        <activity android:name=".activity.MainActivity"
+        <activity android:name=".activity.GrandPepperActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 
-        <activity android:name=".activity.GrandPepperActivity"
+        <activity android:name=".activity.GrandPepperDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 
