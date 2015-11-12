@@ -25,13 +25,20 @@ public class CallForPeppers implements Serializable, IEntidade {
     @DatabaseField
     public String subtitle;
 
+    @DatabaseField
+    public String backgroundImageUrl;
+
     @Expose
-    @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
-    public Collection<Contact> contactCollection;
+    @DatabaseField
+    public String backgroundImagePath;
 
     @Expose
     @DatabaseField(columnName = "grandPepper_version", foreign = true, foreignAutoRefresh = true, maxForeignAutoRefreshLevel = 1)
     public GrandPepper grandPepper;
+
+    @Expose
+    @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
+    public Collection<Contact> contactCollection;
 
     @SerializedName("contacts")
     public List<Contact> contactsJson;

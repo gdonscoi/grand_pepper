@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.adapters.AdapterGrandPepperDetail;
+import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class GrandPepperDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.talks_activity);
+        setContentView(R.layout.activity_grand_pepper_detail);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,6 +35,8 @@ public class GrandPepperDetailActivity extends AppCompatActivity {
 
         if (toolbar.getNavigationIcon() != null)
             toolbar.getNavigationIcon().setTint(Color.parseColor("#ffffff"));
+
+        GrandPepper grandPepper = (GrandPepper) getIntent().getExtras().getSerializable("grand_pepper");
 
         ((TextView) findViewById(R.id.text_description_card_detail)).setText(getIntent().getExtras().getString("title"));
 
@@ -51,17 +54,12 @@ public class GrandPepperDetailActivity extends AppCompatActivity {
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
         collapsingToolbarLayout.setStatusBarScrimColor(Color.parseColor("#ffffff"));
 
-        RecyclerView recList = (RecyclerView) findViewById(R.id.recycler_view_card_talks);
+        RecyclerView recList = (RecyclerView) findViewById(R.id.recycler_view_card);
         recList.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Gerson Donscoi Jr");
-        arrayList.add("Búllêts Trentas");
-        arrayList.add("Largatêra Ponta esquerda");
-        arrayList.add("Blla blla bla ");
-        recList.setAdapter(new AdapterGrandPepperDetail(arrayList, this));
+        recList.setAdapter(new AdapterGrandPepperDetail(grandPepper, this));
     }
 
     @Override

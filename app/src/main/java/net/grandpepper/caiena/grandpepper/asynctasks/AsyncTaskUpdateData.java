@@ -47,18 +47,21 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                     String[] imageName = grandPepper.backgroundImageUrl.split("/");
                     grandPepper.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.backgroundImageUrl),
                             String.valueOf(grandPepper.version).concat(imageName[imageName.length - 1]));
+                    Log.e("AsyncTaskUpdateData", "randPepper.backgroundImageUrl");
                 }
 
                 if (grandPepper.locationBackgroundImageUrl != null && !grandPepper.locationBackgroundImageUrl.isEmpty()) {
                     String[] imageNameLocation = grandPepper.locationBackgroundImageUrl.split("/");
                     grandPepper.locationBackgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.locationBackgroundImageUrl),
                             String.valueOf(grandPepper.version).concat(imageNameLocation[imageNameLocation.length - 1]));
+                    Log.e("AsyncTaskUpdateData", "randPepper.locationBackgroundImageUrl");
                 }
 
                 if (grandPepper.talksBackgroundImageUrl != null && !grandPepper.talksBackgroundImageUrl.isEmpty()) {
                     String[] imageNameTalks = grandPepper.talksBackgroundImageUrl.split("/");
                     grandPepper.talksBackgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.talksBackgroundImageUrl),
                             String.valueOf(grandPepper.version).concat(imageNameTalks[imageNameTalks.length - 1]));
+                    Log.e("AsyncTaskUpdateData", "randPepper.talksBackgroundImageUrl");
                 }
                 InfoDAO.getInstance(context).createOrUpdate(grandPepper);
 
@@ -69,6 +72,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                             String[] imageName = event.authorAvatarUrl.split("/");
                             event.authorAvatarPath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(event.authorAvatarUrl),
                                     String.valueOf(grandPepper.version).concat(imageName[imageName.length - 1]));
+                            Log.e("AsyncTaskUpdateData", "event.authorAvatarUrl");
                         }
                     }
                     EventDAO.getInstance(context).createOrUpdate(grandPepper.eventsJson);
@@ -83,6 +87,13 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                 if (grandPepper.callForPeppersesJson != null) {
                     for (CallForPeppers callForPeppers : grandPepper.callForPeppersesJson) {
                         callForPeppers.grandPepper = grandPepper;
+
+                        if (callForPeppers.backgroundImageUrl != null && !callForPeppers.backgroundImageUrl.isEmpty()) {
+                            String[] imageName = callForPeppers.backgroundImageUrl.split("/");
+                            callForPeppers.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(callForPeppers.backgroundImageUrl),
+                                    String.valueOf(callForPeppers.title).concat(imageName[imageName.length - 1]));
+                            Log.e("AsyncTaskUpdateData", "callForPeppers.backgroundImageUrl ");
+                        }
 
                         CallForPeppersDAO.getInstance(context).createOrUpdate(callForPeppers);
 
@@ -107,6 +118,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                                     String[] imageName = author.authorAvatarUrl.split("/");
                                     author.authorAvatarPath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(author.authorAvatarUrl),
                                             String.valueOf(author.name).concat(imageName[imageName.length - 1]));
+                                    Log.e("AsyncTaskUpdateData", "author.authorAvatarUrl");
                                 }
                             }
                             AuthorDAO.getInstance(context).createOrUpdate(talk.authorsJson);

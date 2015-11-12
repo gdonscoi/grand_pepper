@@ -16,9 +16,11 @@ import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperDetailActivity;
+import net.grandpepper.caiena.grandpepper.beans.CallForPeppers;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterGrandPepper extends RecyclerView.Adapter<AdapterGrandPepper.ViewHolder> {
@@ -49,6 +51,8 @@ public class AdapterGrandPepper extends RecyclerView.Adapter<AdapterGrandPepper.
             Intent intent = new Intent(context, GrandPepperDetailActivity.class);
             intent.putExtra("title", ((TextView) view.findViewById(R.id.text_description_card)).getText());
             intent.putExtra("background_image", dataList.get(getAdapterPosition()).backgroundImagePath);
+            intent.putExtra("grand_pepper", dataList.get(getAdapterPosition()));
+
             Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image");
             Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "comum_text");
             Pair<View, String> p3 = Pair.create(view.findViewById(R.id.content_background_text), "comum_background_text");

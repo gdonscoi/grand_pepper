@@ -6,71 +6,149 @@ import android.content.Intent;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
-import net.grandpepper.caiena.grandpepper.activity.DetailTalksActivity;
+import net.grandpepper.caiena.grandpepper.activity.DetailEventActivity;
+import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
+import net.grandpepper.caiena.grandpepper.activity.GrandPepperDetailActivity;
+import net.grandpepper.caiena.grandpepper.beans.CallForPeppers;
+import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
+import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandPepperDetail.ViewHolder> {
 
-    private ArrayList<String> dataList;
+    private GrandPepper grandPepper;
     private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView descriptionCard;
+        public ImageView backgroundImage;
         public RelativeLayout container;
+        public RelativeLayout disabledView;
         private Context context;
+        private GrandPepper grandPepper;
 
-        public ViewHolder(View v, Context context) {
+        public ViewHolder(View v, Context context, GrandPepper grandPepper) {
             super(v);
-            container = (RelativeLayout) v.findViewById(R.id.container_main_card);
+            container = (RelativeLayout) v.findViewById(R.id.container_grand_pepper_detail_card);
             descriptionCard = (TextView) container.findViewById(R.id.text_description_card);
+            backgroundImage = (ImageView) container.findViewById(R.id.image_background_card);
+            disabledView = (RelativeLayout) v.findViewById(R.id.content_background_disabled);
             this.context = context;
+            this.grandPepper = grandPepper;
             v.setOnClickListener(this);
         }
 
         @SuppressWarnings("unchecked")
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(context, DetailTalksActivity.class);
+//            Intent intent = new Intent(context, DetailTalksActivity.class);
+
+            Intent intent = null;
+            switch (getAdapterPosition()) {
+                case 0:
+                    intent = new Intent(context, DetailEventActivity.class);
+                    break;
+                case 1:
+                    intent = new Intent(context, GrandPepperDetailActivity.class);
+                    break;
+                case 2:
+                    intent = new Intent(context, GrandPepperDetailActivity.class);
+                    break;
+                case 3:
+                    intent = new Intent(context, GrandPepperDetailActivity.class);
+                    break;
+                default:
+                    if (intent == null)
+                        intent = new Intent(context, GrandPepperActivity.class);
+                    Log.e("AdapterGrandPepper", "tela erro");
+                    break;
+            }
+
+            intent.putExtra("grand_pepper", grandPepper);
             intent.putExtra("title", ((TextView) view.findViewById(R.id.text_description_card)).getText());
-            Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image_owner");
-            Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "name_owner");
-            Pair<View, String> p3 = Pair.create(view.findViewById(R.id.text_description_owner), "comum_description_owner");
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2, p3);
+            Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image");
+            Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "comum_text");
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2);
             context.startActivity(intent, options.toBundle());
         }
     }
 
-    public AdapterGrandPepperDetail(ArrayList<String> repositories, Context context) {
+    public AdapterGrandPepperDetail(GrandPepper grandPepper, Context context) {
         this.context = context;
-        this.dataList = repositories;
+        this.grandPepper = grandPepper;
     }
 
     @Override
     public AdapterGrandPepperDetail.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                      int viewType) {
+                                                                  int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.talks_card_view, parent, false);
+                .inflate(R.layout.grand_pepper_detail_card_view, parent, false);
 
-        return new ViewHolder(v, context);
+        return new ViewHolder(v, context, grandPepper);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.descriptionCard.setText(dataList.get(position));
-    }
 
+        switch (position) {
+            case 0:
+                holder.descriptionCard.setText("Programação");
+                if (grandPepper.backgroundImagePath != null && !grandPepper.backgroundImagePath.isEmpty()) {
+                    holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(grandPepper.backgroundImagePath));
+                } else {
+                    holder.itemView.setEnabled(false);
+                    holder.disabledView.setVisibility(View.VISIBLE);
+                }
+                break;
+            case 1:
+                holder.descriptionCard.setText("Palestras");
+                if (grandPepper.talksBackgroundImagePath != null && !grandPepper.talksBackgroundImagePath.isEmpty())
+                    holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(grandPepper.talksBackgroundImagePath));
+                if (grandPepper.talkCollection.isEmpty()) {
+                    holder.itemView.setEnabled(false);
+                    holder.disabledView.setVisibility(View.VISIBLE);
+                }
+                break;
+            case 2:
+                holder.descriptionCard.setText("Localização");
+                if (grandPepper.locationBackgroundImagePath != null && !grandPepper.locationBackgroundImagePath.isEmpty())
+                    holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(grandPepper.locationBackgroundImagePath));
+                if (grandPepper.locationCollection.isEmpty()) {
+                    holder.itemView.setEnabled(false);
+                    holder.disabledView.setVisibility(View.VISIBLE);
+                }
+                break;
+            case 3:
+                holder.descriptionCard.setText("Call for Peppers");
+                if (grandPepper.callForPeppersCollection != null && !grandPepper.callForPeppersCollection.isEmpty()) {
+                    List<CallForPeppers> callForPepperses = new ArrayList<>(grandPepper.callForPeppersCollection);
+                    if (!callForPepperses.isEmpty() && callForPepperses.get(0).backgroundImagePath != null && !callForPepperses.get(0).backgroundImagePath.isEmpty()) {
+                        holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(callForPepperses.get(0).backgroundImagePath));
+                    }
+                } else {
+                    holder.itemView.setEnabled(false);
+                    holder.disabledView.setVisibility(View.VISIBLE);
+                }
+                break;
+        }
+
+
+    }
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return 4;
     }
 
 }
