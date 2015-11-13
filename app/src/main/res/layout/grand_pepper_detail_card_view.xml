@@ -24,23 +24,25 @@
             android:src="@drawable/galera"
             android:transitionName="comum_image_detail" />
 
-        <RelativeLayout
-            android:id="@+id/content_background_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/image_background_card"
-            android:background="#80000000"
-            android:transitionName="comum_background_text_detail">
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/content_background_text"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@id/image_background_card"-->
+            <!--android:background="#80000000"-->
+            <!--android:transitionName="comum_background_text_detail">-->
 
             <TextView
                 android:id="@+id/text_description_card"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:padding="10dp"
                 android:textColor="#ffffff"
+                android:background="#80000000"
+                android:layout_alignBottom="@id/image_background_card"
                 android:textSize="26sp"
                 android:transitionName="comum_text_detail" />
-        </RelativeLayout>
+        <!--</RelativeLayout>-->
     </RelativeLayout>
 
     <RelativeLayout

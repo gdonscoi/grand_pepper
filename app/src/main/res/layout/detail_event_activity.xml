@@ -41,23 +41,25 @@
                     android:src="@drawable/galera"
                     android:transitionName="comum_image_detail" />
 
-                <RelativeLayout
-                    android:id="@+id/content_background_text_detail"
+                <!--<RelativeLayout-->
+                <!--android:id="@+id/content_background_text_detail"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignBottom="@id/image_background_detail"-->
+                <!--android:background="#80000000"-->
+                <!--android:transitionName="comum_background_text_detail">-->
+
+                <TextView
+                    android:id="@+id/text_description_card_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/image_background_detail"
+                    android:padding="10dp"
                     android:background="#80000000"
-                    android:transitionName="comum_background_text_detail">
-
-                    <TextView
-                        android:id="@+id/text_description_card_detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:textColor="#ffffff"
-                        android:textSize="26sp"
-                        android:transitionName="comum_text_detail" />
-                </RelativeLayout>
+                    android:textColor="#ffffff"
+                    android:textSize="26sp"
+                    android:transitionName="comum_text_detail" />
+                <!--</RelativeLayout>-->
             </RelativeLayout>
 
             <android.support.v7.widget.Toolbar
@@ -109,22 +111,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/container_date"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
 
                 <RelativeLayout
                     android:id="@+id/contaienr_vertical_line"
-                    android:layout_height="match_parent"
                     android:layout_width="15dp"
-                    android:layout_marginStart="25dp"
+                    android:layout_height="match_parent"
                     android:layout_marginEnd="15dp"
-                    android:background="@drawable/border_radius_line"/>
+                    android:layout_marginStart="25dp"
+                    android:background="@drawable/border_radius_line" />
 
                 <LinearLayout
                     android:id="@+id/container_events"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"/>
+                    android:orientation="vertical" />
 
             </LinearLayout>
 

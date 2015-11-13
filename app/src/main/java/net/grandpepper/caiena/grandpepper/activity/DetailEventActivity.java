@@ -1,17 +1,20 @@
 package net.grandpepper.caiena.grandpepper.activity;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.beans.Event;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
+import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 public class DetailEventActivity extends AppCompatActivity {
 
@@ -31,6 +34,13 @@ public class DetailEventActivity extends AppCompatActivity {
 
 
         ((TextView) findViewById(R.id.text_description_card_detail)).setText(getIntent().getExtras().getString("title"));
+
+        String nameBackgroundImage = getIntent().getExtras().getString("background_image");
+        if (nameBackgroundImage != null && !nameBackgroundImage.isEmpty()) {
+            Bitmap backgroundImage = AndroidSystemUtil.getImageExternalStorage(nameBackgroundImage);
+            if (backgroundImage != null)
+                ((ImageView) findViewById(R.id.image_background_detail)).setImageBitmap(backgroundImage);
+        }
 
         GrandPepper grandPepper = (GrandPepper) getIntent().getExtras().getSerializable("grand_pepper");
 

@@ -58,6 +58,7 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
             switch (getAdapterPosition()) {
                 case 0:
                     intent = new Intent(context, DetailEventActivity.class);
+                    intent.putExtra("background_image", grandPepper.backgroundImagePath);
                     break;
                 case 1:
                     intent = new Intent(context, GrandPepperDetailActivity.class);
@@ -77,9 +78,12 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
 
             intent.putExtra("grand_pepper", grandPepper);
             intent.putExtra("title", ((TextView) view.findViewById(R.id.text_description_card)).getText());
-            Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image");
-            Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "comum_text");
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2);
+
+            Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image_detail");
+            Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "comum_text_detail");
+//            Pair<View, String> p3 = Pair.create(view.findViewById(R.id.content_background_text), "comum_background_text_detail");
+
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2);//, p3);
             context.startActivity(intent, options.toBundle());
         }
     }
