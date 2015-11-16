@@ -578,37 +578,6 @@
                     "action": "Almoço",
                     "latlong": "-22.893655, -47.027731"
                 }
-            ],
-            "talks": [
-                {
-                    "title": "Nome da palestra 1",
-                    "subtitle": "Descrição da palestra 1",
-                    "startTime": "08:00",
-                    "authors": [
-                        {
-                            "name": "Gerson Donscoi Junior",
-                            "occupation": "Eng. de aplicativos em Comp.",
-                            "authorAvatarUrl": "https://avatars0.githubusercontent.com/u/2416654?v=3&s=460"
-                        }
-                    ]
-                },
-                {
-                    "title": "Nome da palestra 2",
-                    "subtitle": "Descrição da palestra 2",
-                    "startTime": "09:00",
-                    "authors": [
-                        {
-                            "name": "Gerson Donscoi Junior",
-                            "occupation": "Eng. de aplicativos em Comp.",
-                            "authorAvatarUrl": "https://avatars0.githubusercontent.com/u/2416654?v=3&s=460"
-                        },
-                        {
-                            "name": "Eduardo Foster",
-                            "occupation": "Android Developer",
-                            "authorAvatarUrl": "https://avatars3.githubusercontent.com/u/2751160?v=3&s=460"
-                        }
-                    ]
-                }
             ]
         }
 ]
