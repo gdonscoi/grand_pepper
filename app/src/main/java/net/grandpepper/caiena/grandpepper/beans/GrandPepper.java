@@ -69,10 +69,6 @@ public class GrandPepper implements Serializable, IEntidade {
     @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
     public Collection<CallForPeppers> callForPeppersCollection;
 
-    @Expose
-    @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
-    public Collection<Talk> talkCollection;
-
     @SerializedName("events")
     public List<Event> eventsJson;
 
@@ -81,7 +77,4 @@ public class GrandPepper implements Serializable, IEntidade {
 
     @SerializedName("callForPeppers")
     public List<CallForPeppers> callForPeppersesJson;
-
-    @SerializedName("talks")
-    public List<Talk> talksJson;
 }

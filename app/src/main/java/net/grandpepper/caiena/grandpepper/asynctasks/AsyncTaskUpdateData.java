@@ -9,20 +9,16 @@ import android.util.Log;
 import android.widget.Toast;
 
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
-import net.grandpepper.caiena.grandpepper.beans.Author;
 import net.grandpepper.caiena.grandpepper.beans.CallForPeppers;
 import net.grandpepper.caiena.grandpepper.beans.Contact;
 import net.grandpepper.caiena.grandpepper.beans.Event;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.beans.Location;
-import net.grandpepper.caiena.grandpepper.beans.Talk;
-import net.grandpepper.caiena.grandpepper.models.AuthorDAO;
 import net.grandpepper.caiena.grandpepper.models.CallForPeppersDAO;
 import net.grandpepper.caiena.grandpepper.models.ContactDAO;
 import net.grandpepper.caiena.grandpepper.models.EventDAO;
 import net.grandpepper.caiena.grandpepper.models.InfoDAO;
 import net.grandpepper.caiena.grandpepper.models.LocationDAO;
-import net.grandpepper.caiena.grandpepper.models.TalkDAO;
 import net.grandpepper.caiena.grandpepper.util.HttpConnectionUtil;
 
 import java.util.List;
@@ -104,29 +100,6 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                         }
                     }
                 }
-
-                if (grandPepper.talksJson != null) {
-                    for (Talk talk : grandPepper.talksJson) {
-                        talk.grandPepper = grandPepper;
-
-                        TalkDAO.getInstance(context).createOrUpdate(talk);
-
-                        if (talk.authorsJson != null) {
-                            for (Author author : talk.authorsJson) {
-                                author.talk = talk;
-                                if (author.authorAvatarUrl != null && !author.authorAvatarUrl.isEmpty()) {
-                                    String[] imageName = author.authorAvatarUrl.split("/");
-                                    author.authorAvatarPath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(author.authorAvatarUrl),
-                                            String.valueOf(author.name).concat(imageName[imageName.length - 1]));
-                                    Log.e("AsyncTaskUpdateData", "author.authorAvatarUrl");
-                                }
-                            }
-                            AuthorDAO.getInstance(context).createOrUpdate(talk.authorsJson);
-                        }
-                    }
-                }
-
-
             }
             db.setTransactionSuccessful();
         } catch (Exception e) {

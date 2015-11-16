@@ -31,6 +31,9 @@ public class Event implements Serializable, IEntidade {
     public String summary;
 
     @DatabaseField
+    public String authorName;
+
+    @DatabaseField
     public String authorAvatarUrl;
 
     @Expose

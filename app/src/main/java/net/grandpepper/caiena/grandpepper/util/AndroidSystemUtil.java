@@ -6,6 +6,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Shader;
 import android.os.Environment;
 import android.util.Log;
 
@@ -99,5 +103,19 @@ public class AndroidSystemUtil {
             return null;
         }
         return photo;
+    }
+
+    public static Bitmap getCircularAvatar(Bitmap bitmapImage) {
+        if (bitmapImage == null)
+            return null;
+
+        Bitmap circleBitmap = Bitmap.createBitmap(bitmapImage.getWidth(), bitmapImage.getHeight(), Bitmap.Config.ARGB_8888);
+        BitmapShader shader = new BitmapShader(bitmapImage, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        Paint paint = new Paint();
+        paint.setShader(shader);
+        Canvas c = new Canvas(circleBitmap);
+        c.drawCircle(bitmapImage.getWidth() / 2, bitmapImage.getHeight() / 2, bitmapImage.getWidth() / 2, paint);
+
+        return circleBitmap;
     }
 }

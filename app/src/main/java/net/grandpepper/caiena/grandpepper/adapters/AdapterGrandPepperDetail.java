@@ -16,10 +16,12 @@ import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.activity.DetailEventActivity;
+import net.grandpepper.caiena.grandpepper.activity.DetailTalkActivity;
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperDetailActivity;
 import net.grandpepper.caiena.grandpepper.beans.CallForPeppers;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
+import net.grandpepper.caiena.grandpepper.models.EventDAO;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 import java.util.ArrayList;
@@ -52,16 +54,15 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
         @SuppressWarnings("unchecked")
         @Override
         public void onClick(View view) {
-//            Intent intent = new Intent(context, DetailTalksActivity.class);
-
             Intent intent = null;
             switch (getAdapterPosition()) {
-                case 0:
+                case DetailEventActivity.EVENT_DETAIL:
                     intent = new Intent(context, DetailEventActivity.class);
                     intent.putExtra("background_image", grandPepper.backgroundImagePath);
                     break;
-                case 1:
-                    intent = new Intent(context, GrandPepperDetailActivity.class);
+                case DetailTalkActivity.TALK_DETAIL:
+                    intent = new Intent(context, DetailTalkActivity.class);
+                    intent.putExtra("background_image", grandPepper.talksBackgroundImagePath);
                     break;
                 case 2:
                     intent = new Intent(context, GrandPepperDetailActivity.class);
@@ -106,7 +107,7 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         switch (position) {
-            case 0:
+            case DetailEventActivity.EVENT_DETAIL:
                 holder.descriptionCard.setText("Programação");
                 if (grandPepper.backgroundImagePath != null && !grandPepper.backgroundImagePath.isEmpty()) {
                     holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(grandPepper.backgroundImagePath));
@@ -115,11 +116,16 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
                     holder.disabledView.setVisibility(View.VISIBLE);
                 }
                 break;
-            case 1:
+            case DetailTalkActivity.TALK_DETAIL:
                 holder.descriptionCard.setText("Palestras");
                 if (grandPepper.talksBackgroundImagePath != null && !grandPepper.talksBackgroundImagePath.isEmpty())
                     holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(grandPepper.talksBackgroundImagePath));
-                if (grandPepper.talkCollection.isEmpty()) {
+                try {
+                    if (EventDAO.getInstance(context).getTalks(grandPepper.version).isEmpty()) {
+                        holder.itemView.setEnabled(false);
+                        holder.disabledView.setVisibility(View.VISIBLE);
+                    }
+                } catch (Exception ignore) {
                     holder.itemView.setEnabled(false);
                     holder.disabledView.setVisibility(View.VISIBLE);
                 }

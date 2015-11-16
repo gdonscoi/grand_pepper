@@ -64,6 +64,10 @@
         <activity android:name=".activity.DetailEventActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
+
+        <activity android:name=".activity.DetailTalkActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
     </application>
 
 </manifest>

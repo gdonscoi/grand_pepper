@@ -5,25 +5,28 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
-import net.grandpepper.caiena.grandpepper.beans.Event;
+import net.grandpepper.caiena.grandpepper.adapters.AdapterDetailTalk;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
+import net.grandpepper.caiena.grandpepper.models.EventDAO;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
-public class DetailEventActivity extends AppCompatActivity {
+public class DetailTalkActivity extends AppCompatActivity {
 
-    final public static int EVENT_DETAIL = 0;
+    final public static int TALK_DETAIL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_event_activity);
+        setContentView(R.layout.detail_talk_activity);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -46,26 +49,24 @@ public class DetailEventActivity extends AppCompatActivity {
 
         GrandPepper grandPepper = (GrandPepper) getIntent().getExtras().getSerializable("grand_pepper");
 
-        assert grandPepper != null;
-        ((TextView) findViewById(R.id.text_date_events)).setText(grandPepper.date);
-
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.container_events);
-        for(Event event : grandPepper.eventCollection){
-            TextView textView = new TextView(this);
-            textView.setText(event.startTime.concat(" - ").concat(event.endTime).concat(" ").concat(event.title));
-            textView.setTextSize(18);
-            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            llp.setMargins(0, 10, 15, 0); // llp.setMargins(left, top, right, bottom);
-            textView.setLayoutParams(llp);
-            linearLayout.addView(textView);
-        }
-
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(getIntent().getExtras().getString("title"));
         collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
         collapsingToolbarLayout.setContentScrimColor(Color.parseColor("#121212"));
         collapsingToolbarLayout.setStatusBarScrimColor(Color.parseColor("#ffffff"));
+
+        RecyclerView recList = (RecyclerView) findViewById(R.id.recycler_view_card);
+        recList.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recList.setLayoutManager(llm);
+        try {
+            recList.setAdapter(new AdapterDetailTalk(EventDAO.getInstance(this).getTalks(grandPepper.version)));
+        } catch (Exception e) {
+            Log.e("DetailTalkActivity", "Erro on load Events type for talks");
+            onBackPressed();
+        }
 
     }
 
