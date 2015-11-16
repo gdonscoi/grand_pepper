@@ -570,11 +570,13 @@
             "locations": [
                 {
                     "name": "Shopping Iguatemi",
+                    "address" : "Rua dos testes, Jardim QA, Testlandia - QA, 111",
                     "action": "Evento",
                     "latlong": "-22.893655, -47.027731"
                 },
                 {
                     "name": "Outback - Shopping Iguatemi",
+                    "address" : "Rua dos testes 2, Jardim QA 2, Testlandia - QA, 222",
                     "action": "Almoço",
                     "latlong": "-22.893655, -47.027731"
                 }
