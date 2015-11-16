@@ -583,6 +583,7 @@
                 {
                     "title": "Nome da palestra 1",
                     "subtitle": "Descrição da palestra 1",
+                    "startTime": "08:00",
                     "authors": [
                         {
                             "name": "Gerson Donscoi Junior",
@@ -594,6 +595,7 @@
                 {
                     "title": "Nome da palestra 2",
                     "subtitle": "Descrição da palestra 2",
+                    "startTime": "09:00",
                     "authors": [
                         {
                             "name": "Gerson Donscoi Junior",
