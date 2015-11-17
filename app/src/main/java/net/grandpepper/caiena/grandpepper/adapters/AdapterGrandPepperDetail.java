@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.activity.DetailEventActivity;
+import net.grandpepper.caiena.grandpepper.activity.DetailLocationActivity;
 import net.grandpepper.caiena.grandpepper.activity.DetailTalkActivity;
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperDetailActivity;
@@ -64,16 +65,18 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
                     intent = new Intent(context, DetailTalkActivity.class);
                     intent.putExtra("background_image", grandPepper.talksBackgroundImagePath);
                     break;
-                case 2:
-                    intent = new Intent(context, GrandPepperDetailActivity.class);
+                case DetailLocationActivity.LOCATION_DETAIL:
+                    intent = new Intent(context, DetailLocationActivity.class);
+                    intent.putExtra("background_image", grandPepper.locationBackgroundImagePath);
                     break;
                 case 3:
                     intent = new Intent(context, GrandPepperDetailActivity.class);
                     break;
                 default:
-                    if (intent == null)
+                    if (intent == null) {
                         intent = new Intent(context, GrandPepperActivity.class);
-                    Log.e("AdapterGrandPepper", "tela erro");
+                        Log.e("AdapterGrandPepper", "tela erro");
+                    }
                     break;
             }
 
@@ -130,7 +133,7 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
                     holder.disabledView.setVisibility(View.VISIBLE);
                 }
                 break;
-            case 2:
+            case DetailLocationActivity.LOCATION_DETAIL:
                 holder.descriptionCard.setText("Localização");
                 if (grandPepper.locationBackgroundImagePath != null && !grandPepper.locationBackgroundImagePath.isEmpty())
                     holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(grandPepper.locationBackgroundImagePath));

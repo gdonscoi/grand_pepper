@@ -19,6 +19,9 @@ public class Location implements Serializable, IEntidade {
     public String name;
 
     @DatabaseField
+    public String address;
+
+    @DatabaseField
     public String action;
 
     @DatabaseField
