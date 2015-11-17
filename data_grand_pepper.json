@@ -550,23 +550,21 @@
                     "authorAvatarUrl": ""
                 }
             ],
-            "callForPeppers": [
-                {
-                    "title": "Call for Peppers",
-                    "subtitle": "subtitle text",
-                    "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-4.png",
-                    "contacts": [
-                        {
-                            "name": "Teste 1",
-                            "email": "email1@teste.com"
-                        },
-                        {
-                            "name": "Teste 2",
-                            "email": "email2@teste.com"
-                        }
-                    ]
-                }
-            ],
+            "callForPeppers": {
+                "title": "Call for Peppers",
+                "subtitle": "subtitle text",
+                "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-4.png",
+                "contacts": [
+                    {
+                        "name": "Teste 1",
+                        "email": "email1@teste.com"
+                    },
+                    {
+                        "name": "Teste 2",
+                        "email": "email2@teste.com"
+                    }
+                ]
+            },
             "locations": [
                 {
                     "name": "Shopping Iguatemi",
