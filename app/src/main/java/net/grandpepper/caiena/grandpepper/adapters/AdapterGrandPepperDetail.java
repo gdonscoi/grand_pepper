@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import net.grandpepper.caiena.grandpepper.R;
+import net.grandpepper.caiena.grandpepper.activity.CallForPeppersActivity;
 import net.grandpepper.caiena.grandpepper.activity.DetailEventActivity;
 import net.grandpepper.caiena.grandpepper.activity.DetailLocationActivity;
 import net.grandpepper.caiena.grandpepper.activity.DetailTalkActivity;
@@ -69,8 +70,9 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
                     intent = new Intent(context, DetailLocationActivity.class);
                     intent.putExtra("background_image", grandPepper.locationBackgroundImagePath);
                     break;
-                case 3:
-                    intent = new Intent(context, GrandPepperDetailActivity.class);
+                case CallForPeppersActivity.CALL_FOR_PEPPERS_DETAIL:
+                    intent = new Intent(context, CallForPeppersActivity.class);
+                    intent.putExtra("background_image", grandPepper.callForPeppers.backgroundImagePath);
                     break;
                 default:
                     if (intent == null) {
@@ -142,12 +144,11 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
                     holder.disabledView.setVisibility(View.VISIBLE);
                 }
                 break;
-            case 3:
+            case CallForPeppersActivity.CALL_FOR_PEPPERS_DETAIL:
                 holder.descriptionCard.setText("Call for Peppers");
-                if (grandPepper.callForPeppersCollection != null && !grandPepper.callForPeppersCollection.isEmpty()) {
-                    List<CallForPeppers> callForPepperses = new ArrayList<>(grandPepper.callForPeppersCollection);
-                    if (!callForPepperses.isEmpty() && callForPepperses.get(0).backgroundImagePath != null && !callForPepperses.get(0).backgroundImagePath.isEmpty()) {
-                        holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(callForPepperses.get(0).backgroundImagePath));
+                if (grandPepper.callForPeppers != null) {
+                    if (grandPepper.callForPeppers.backgroundImagePath != null && !grandPepper.callForPeppers.backgroundImagePath.isEmpty()) {
+                        holder.backgroundImage.setImageBitmap(AndroidSystemUtil.getImageExternalStorage(grandPepper.callForPeppers.backgroundImagePath));
                     }
                 } else {
                     holder.itemView.setEnabled(false);

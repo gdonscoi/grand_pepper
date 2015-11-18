@@ -9,7 +9,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
-import net.grandpepper.caiena.grandpepper.beans.CallForPeppers;
 import net.grandpepper.caiena.grandpepper.beans.Contact;
 import net.grandpepper.caiena.grandpepper.beans.Event;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
@@ -17,7 +16,7 @@ import net.grandpepper.caiena.grandpepper.beans.Location;
 import net.grandpepper.caiena.grandpepper.models.CallForPeppersDAO;
 import net.grandpepper.caiena.grandpepper.models.ContactDAO;
 import net.grandpepper.caiena.grandpepper.models.EventDAO;
-import net.grandpepper.caiena.grandpepper.models.InfoDAO;
+import net.grandpepper.caiena.grandpepper.models.GrandPepperDAO;
 import net.grandpepper.caiena.grandpepper.models.LocationDAO;
 import net.grandpepper.caiena.grandpepper.util.HttpConnectionUtil;
 
@@ -34,7 +33,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
         try {
             List<GrandPepper> grandPeppers = HttpConnectionUtil.parseJsonToInfo(HttpConnectionUtil.getJsonInfo());
 
-            db = InfoDAO.getInstance(context).getConnectionDataBase();
+            db = GrandPepperDAO.getInstance(context).getConnectionDataBase();
             db.beginTransaction();
 
             for (GrandPepper grandPepper : grandPeppers) {
@@ -59,7 +58,25 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                             String.valueOf(grandPepper.version).concat(imageNameTalks[imageNameTalks.length - 1]));
                     Log.e("AsyncTaskUpdateData", "randPepper.talksBackgroundImageUrl");
                 }
-                InfoDAO.getInstance(context).createOrUpdate(grandPepper);
+
+                if (grandPepper.callForPeppers != null) {
+                    if (grandPepper.callForPeppers.backgroundImageUrl != null && !grandPepper.callForPeppers.backgroundImageUrl.isEmpty()) {
+                        String[] imageName = grandPepper.callForPeppers.backgroundImageUrl.split("/");
+                        grandPepper.callForPeppers.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.callForPeppers.backgroundImageUrl),
+                                String.valueOf(grandPepper.callForPeppers.title).concat(imageName[imageName.length - 1]));
+                        Log.e("AsyncTaskUpdateData", "callForPeppers.backgroundImageUrl ");
+                    }
+
+                    CallForPeppersDAO.getInstance(context).createOrUpdate(grandPepper.callForPeppers);
+
+                    if (grandPepper.callForPeppers.contactsJson != null) {
+                        for (Contact contact : grandPepper.callForPeppers.contactsJson)
+                            contact.callForPeppers = grandPepper.callForPeppers;
+                        ContactDAO.getInstance(context).createOrUpdate(grandPepper.callForPeppers.contactsJson);
+                    }
+                }
+
+                GrandPepperDAO.getInstance(context).createOrUpdate(grandPepper);
 
                 if (grandPepper.eventsJson != null) {
                     for (Event event : grandPepper.eventsJson) {
@@ -80,26 +97,6 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                     LocationDAO.getInstance(context).createOrUpdate(grandPepper.locationsJson);
                 }
 
-                if (grandPepper.callForPeppersesJson != null) {
-                    for (CallForPeppers callForPeppers : grandPepper.callForPeppersesJson) {
-                        callForPeppers.grandPepper = grandPepper;
-
-                        if (callForPeppers.backgroundImageUrl != null && !callForPeppers.backgroundImageUrl.isEmpty()) {
-                            String[] imageName = callForPeppers.backgroundImageUrl.split("/");
-                            callForPeppers.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(callForPeppers.backgroundImageUrl),
-                                    String.valueOf(callForPeppers.title).concat(imageName[imageName.length - 1]));
-                            Log.e("AsyncTaskUpdateData", "callForPeppers.backgroundImageUrl ");
-                        }
-
-                        CallForPeppersDAO.getInstance(context).createOrUpdate(callForPeppers);
-
-                        if (callForPeppers.contactsJson != null) {
-                            for (Contact contact : callForPeppers.contactsJson)
-                                contact.callForPeppers = callForPeppers;
-                            ContactDAO.getInstance(context).createOrUpdate(callForPeppers.contactsJson);
-                        }
-                    }
-                }
             }
             db.setTransactionSuccessful();
         } catch (Exception e) {

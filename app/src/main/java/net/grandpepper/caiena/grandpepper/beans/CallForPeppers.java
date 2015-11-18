@@ -33,10 +33,6 @@ public class CallForPeppers implements Serializable, IEntidade {
     public String backgroundImagePath;
 
     @Expose
-    @DatabaseField(columnName = "grandPepper_version", foreign = true, foreignAutoRefresh = true, maxForeignAutoRefreshLevel = 1)
-    public GrandPepper grandPepper;
-
-    @Expose
     @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
     public Collection<Contact> contactCollection;
 

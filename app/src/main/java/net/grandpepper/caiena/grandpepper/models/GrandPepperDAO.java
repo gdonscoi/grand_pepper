@@ -4,18 +4,18 @@ import android.content.Context;
 
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 
-public class InfoDAO extends BaseDAO<GrandPepper> {
+public class GrandPepperDAO extends BaseDAO<GrandPepper> {
 
-    private static InfoDAO dao;
+    private static GrandPepperDAO dao;
 
-    public static InfoDAO getInstance(Context ctx) {
+    public static GrandPepperDAO getInstance(Context ctx) {
         if (dao == null) {
-            dao = new InfoDAO(ctx);
+            dao = new GrandPepperDAO(ctx);
         }
         return dao;
     }
 
-    private InfoDAO(Context ctx) {
+    private GrandPepperDAO(Context ctx) {
         super();
         super.ctx = ctx;
     }

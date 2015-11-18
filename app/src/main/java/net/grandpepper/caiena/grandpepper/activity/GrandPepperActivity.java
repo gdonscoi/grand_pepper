@@ -12,8 +12,9 @@ import android.util.Log;
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.adapters.AdapterGrandPepper;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
-import net.grandpepper.caiena.grandpepper.models.InfoDAO;
+import net.grandpepper.caiena.grandpepper.models.GrandPepperDAO;
 
+import java.util.Collections;
 import java.util.List;
 
 public class GrandPepperActivity extends AppCompatActivity {
@@ -38,7 +39,8 @@ public class GrandPepperActivity extends AppCompatActivity {
         recList.setLayoutManager(llm);
         List<GrandPepper> arrayList = null;
         try {
-            arrayList = InfoDAO.getInstance(this).findAll();
+            arrayList = GrandPepperDAO.getInstance(this).findAll();
+            Collections.reverse(arrayList);
         } catch (Exception e) {
             Log.e("MainActivity", e.getMessage());
         }

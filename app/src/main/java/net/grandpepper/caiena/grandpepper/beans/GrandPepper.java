@@ -57,6 +57,9 @@ public class GrandPepper implements Serializable, IEntidade {
     @DatabaseField
     public String type;
 
+    @DatabaseField(columnName = "callForPeppers_id", foreign = true, foreignAutoRefresh = true, maxForeignAutoRefreshLevel = 2)
+    public CallForPeppers callForPeppers;
+
     @Expose
     @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
     public Collection<Event> eventCollection;
@@ -65,16 +68,10 @@ public class GrandPepper implements Serializable, IEntidade {
     @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
     public Collection<Location> locationCollection;
 
-    @Expose
-    @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
-    public Collection<CallForPeppers> callForPeppersCollection;
-
     @SerializedName("events")
     public List<Event> eventsJson;
 
     @SerializedName("locations")
     public List<Location> locationsJson;
 
-    @SerializedName("callForPeppers")
-    public List<CallForPeppers> callForPeppersesJson;
 }

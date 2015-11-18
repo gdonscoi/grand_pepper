@@ -12,7 +12,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.asynctasks.AsyncTaskUpdateData;
-import net.grandpepper.caiena.grandpepper.models.InfoDAO;
+import net.grandpepper.caiena.grandpepper.models.GrandPepperDAO;
 
 public class SplashScreenActivity extends Activity {
 
@@ -33,7 +33,7 @@ public class SplashScreenActivity extends Activity {
 //        }
 
         try {
-            if (InfoDAO.getInstance(this).count() <= 0) {
+            if (GrandPepperDAO.getInstance(this).count() <= 0) {
                 new AsyncTaskUpdateData().execute(context);
                 return;
             }
