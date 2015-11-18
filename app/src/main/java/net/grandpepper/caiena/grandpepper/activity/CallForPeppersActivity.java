@@ -56,12 +56,17 @@ public class CallForPeppersActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.call_for_peppers_description)).setText(grandPepper.callForPeppers.subtitle);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.container_contact);
 
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0, 0, 0, 30);
+
         for(Contact contact :grandPepper.callForPeppers.contactCollection){
             TextView textViewName = new TextView(this);
             textViewName.setText(contact.name);
 
             TextView textViewEmail = new TextView(this);
             textViewEmail.setText(contact.email);
+            textViewEmail.setLayoutParams(layoutParams);
 
             linearLayout.addView(textViewName);
             linearLayout.addView(textViewEmail);

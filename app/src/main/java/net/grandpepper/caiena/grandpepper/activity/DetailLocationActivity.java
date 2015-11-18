@@ -1,5 +1,7 @@
 package net.grandpepper.caiena.grandpepper.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,11 +26,15 @@ import java.util.ArrayList;
 public class DetailLocationActivity extends AppCompatActivity {
 
     final public static int LOCATION_DETAIL = 2;
+    private Context context;
+    private GrandPepper grandPepper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_location_activity);
+
+        this.context = this;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -48,7 +55,16 @@ public class DetailLocationActivity extends AppCompatActivity {
                 ((ImageView) findViewById(R.id.image_background_detail)).setImageBitmap(backgroundImage);
         }
 
-        GrandPepper grandPepper = (GrandPepper) getIntent().getExtras().getSerializable("grand_pepper");
+        grandPepper = (GrandPepper) getIntent().getExtras().getSerializable("grand_pepper");
+
+        findViewById(R.id.location_maps).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MapsActivity.class);
+                intent.putExtra("grand_pepper", grandPepper);
+                context.startActivity(intent);
+            }
+        });
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(getIntent().getExtras().getString("title"));

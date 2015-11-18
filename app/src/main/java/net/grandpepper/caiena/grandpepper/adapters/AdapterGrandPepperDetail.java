@@ -87,9 +87,8 @@ public class AdapterGrandPepperDetail extends RecyclerView.Adapter<AdapterGrandP
 
             Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image_detail");
             Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "comum_text_detail");
-//            Pair<View, String> p3 = Pair.create(view.findViewById(R.id.content_background_text), "comum_background_text_detail");
 
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2);//, p3);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2);
             context.startActivity(intent, options.toBundle());
         }
     }
