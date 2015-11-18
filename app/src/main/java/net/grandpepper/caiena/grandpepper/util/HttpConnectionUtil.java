@@ -84,27 +84,4 @@ public class HttpConnectionUtil {
         }
         return inputStreamURL;
     }
-
-    public static String saveImageInfo(InputStream image, String nameImage) throws IOException {
-        if (image == null)
-            return "";
-        OutputStream output = null;
-        File storagePath = Environment.getExternalStorageDirectory();
-        try {
-            output = new FileOutputStream(new File(storagePath, nameImage));
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = image.read(buffer, 0, buffer.length)) >= 0) {
-                output.write(buffer, 0, bytesRead);
-            }
-        } catch (Exception ignore) {
-            Log.e("HttpConnectionUtil", "Erro ao salvar imagem.");
-            return "";
-        } finally {
-            if (output != null)
-                output.close();
-            image.close();
-        }
-        return "/".concat(nameImage);
-    }
 }

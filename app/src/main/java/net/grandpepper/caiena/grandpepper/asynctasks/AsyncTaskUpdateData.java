@@ -18,6 +18,7 @@ import net.grandpepper.caiena.grandpepper.models.ContactDAO;
 import net.grandpepper.caiena.grandpepper.models.EventDAO;
 import net.grandpepper.caiena.grandpepper.models.GrandPepperDAO;
 import net.grandpepper.caiena.grandpepper.models.LocationDAO;
+import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 import net.grandpepper.caiena.grandpepper.util.HttpConnectionUtil;
 
 import java.util.List;
@@ -40,21 +41,21 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
 
                 if (grandPepper.backgroundImageUrl != null && !grandPepper.backgroundImageUrl.isEmpty()) {
                     String[] imageName = grandPepper.backgroundImageUrl.split("/");
-                    grandPepper.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.backgroundImageUrl),
+                    grandPepper.backgroundImagePath = AndroidSystemUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.backgroundImageUrl),
                             String.valueOf(grandPepper.version).concat(imageName[imageName.length - 1]));
                     Log.e("AsyncTaskUpdateData", "randPepper.backgroundImageUrl");
                 }
 
                 if (grandPepper.locationBackgroundImageUrl != null && !grandPepper.locationBackgroundImageUrl.isEmpty()) {
                     String[] imageNameLocation = grandPepper.locationBackgroundImageUrl.split("/");
-                    grandPepper.locationBackgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.locationBackgroundImageUrl),
+                    grandPepper.locationBackgroundImagePath = AndroidSystemUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.locationBackgroundImageUrl),
                             String.valueOf(grandPepper.version).concat(imageNameLocation[imageNameLocation.length - 1]));
                     Log.e("AsyncTaskUpdateData", "randPepper.locationBackgroundImageUrl");
                 }
 
                 if (grandPepper.talksBackgroundImageUrl != null && !grandPepper.talksBackgroundImageUrl.isEmpty()) {
                     String[] imageNameTalks = grandPepper.talksBackgroundImageUrl.split("/");
-                    grandPepper.talksBackgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.talksBackgroundImageUrl),
+                    grandPepper.talksBackgroundImagePath = AndroidSystemUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.talksBackgroundImageUrl),
                             String.valueOf(grandPepper.version).concat(imageNameTalks[imageNameTalks.length - 1]));
                     Log.e("AsyncTaskUpdateData", "randPepper.talksBackgroundImageUrl");
                 }
@@ -62,7 +63,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                 if (grandPepper.callForPeppers != null) {
                     if (grandPepper.callForPeppers.backgroundImageUrl != null && !grandPepper.callForPeppers.backgroundImageUrl.isEmpty()) {
                         String[] imageName = grandPepper.callForPeppers.backgroundImageUrl.split("/");
-                        grandPepper.callForPeppers.backgroundImagePath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.callForPeppers.backgroundImageUrl),
+                        grandPepper.callForPeppers.backgroundImagePath = AndroidSystemUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.callForPeppers.backgroundImageUrl),
                                 String.valueOf(grandPepper.callForPeppers.title).concat(imageName[imageName.length - 1]));
                         Log.e("AsyncTaskUpdateData", "callForPeppers.backgroundImageUrl ");
                     }
@@ -83,7 +84,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                         event.grandPepper = grandPepper;
                         if (event.authorAvatarUrl != null && !event.authorAvatarUrl.isEmpty()) {
                             String[] imageName = event.authorAvatarUrl.split("/");
-                            event.authorAvatarPath = HttpConnectionUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(event.authorAvatarUrl),
+                            event.authorAvatarPath = AndroidSystemUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(event.authorAvatarUrl),
                                     String.valueOf(grandPepper.version).concat(imageName[imageName.length - 1]));
                             Log.e("AsyncTaskUpdateData", "event.authorAvatarUrl");
                         }

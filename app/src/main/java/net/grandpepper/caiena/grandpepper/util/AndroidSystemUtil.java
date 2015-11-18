@@ -16,8 +16,11 @@ import android.util.Log;
 import net.grandpepper.caiena.grandpepper.activity.SplashScreenActivity;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Random;
 
 public class AndroidSystemUtil {
@@ -93,13 +96,21 @@ public class AndroidSystemUtil {
         }
     }
 
+    private static File getFolder() {
+        File folder = new File(Environment.getExternalStorageDirectory() + "/grand_pepper");
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+        return folder;
+    }
+
     public static Bitmap getImageExternalStorage(String nameImage) {
-        String photoPath = Environment.getExternalStorageDirectory() + nameImage;
+        String photoPath = getFolder() + nameImage;
         Bitmap photo;
         try {
             photo = BitmapFactory.decodeFile(photoPath);
         } catch (Exception e) {
-            Log.e("AndroidSystemUtil" , "Erro ao carregar imagem" + e.getMessage());
+            Log.e("AndroidSystemUtil", "Erro ao carregar imagem" + e.getMessage());
             return null;
         }
         return photo;
@@ -117,5 +128,28 @@ public class AndroidSystemUtil {
         c.drawCircle(bitmapImage.getWidth() / 2, bitmapImage.getHeight() / 2, bitmapImage.getWidth() / 2, paint);
 
         return circleBitmap;
+    }
+
+    public static String saveImageInfo(InputStream image, String nameImage) throws IOException {
+        if (image == null)
+            return "";
+        OutputStream output = null;
+        File storagePath = getFolder();
+        try {
+            output = new FileOutputStream(new File(storagePath, nameImage));
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = image.read(buffer, 0, buffer.length)) >= 0) {
+                output.write(buffer, 0, bytesRead);
+            }
+        } catch (Exception ignore) {
+            Log.e("HttpConnectionUtil", "Erro ao salvar imagem.");
+            return "";
+        } finally {
+            if (output != null)
+                output.close();
+            image.close();
+        }
+        return "/".concat(nameImage);
     }
 }
