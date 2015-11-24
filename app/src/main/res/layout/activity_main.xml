@@ -37,14 +37,6 @@
                     android:src="@drawable/grand_pepper_logo"
                     android:transitionName="comum_image" />
 
-                <!--<RelativeLayout-->
-                <!--android:id="@+id/content_background_text"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_alignBottom="@id/image_background_card"-->
-                <!--android:background="#80000000"-->
-                <!--android:transitionName="comum_background_text">-->
-
                 <TextView
                     android:id="@+id/text_description_card_detail"
                     android:layout_width="match_parent"
@@ -56,7 +48,6 @@
                     android:textSize="26sp"
                     android:transitionName="comum_text" />
 
-                <!--</RelativeLayout>-->
             </RelativeLayout>
 
             <android.support.v7.widget.Toolbar

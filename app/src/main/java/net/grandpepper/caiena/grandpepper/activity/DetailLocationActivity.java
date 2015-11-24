@@ -43,10 +43,8 @@ import java.util.ArrayList;
 public class DetailLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     final public static int LOCATION_DETAIL = 2;
-    private Context context;
     private GrandPepper grandPepper;
     private RelativeLayout containerMap;
-    private RelativeLayout containerInfo;
     private GoogleMap mMap;
     private Button buttonMaps;
     private boolean readyBackAnimation = true;
@@ -56,8 +54,6 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.do_not_move, R.anim.do_not_move);
         setContentView(R.layout.detail_location_activity);
-
-        this.context = this;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -72,7 +68,6 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
         if (toolbar.getNavigationIcon() != null)
             toolbar.getNavigationIcon().setTint(Color.parseColor("#ffffff"));
 
-        containerInfo = (RelativeLayout) findViewById(R.id.container_info);
         containerMap = (RelativeLayout) findViewById(R.id.container_map);
         ((TextView) findViewById(R.id.text_description_card_detail)).setText(getIntent().getExtras().getString("title"));
 
@@ -132,7 +127,6 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 supportFinishAfterTransition();
                 return true;

@@ -9,5 +9,9 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="title_activity_maps">Localização</string>
+    <string name="refresh_grand_pepper">Atualizar Grand Pepper</string>
+    <string name="refresh_message">Deseja atualizar as informações?</string>
+    <string name="refresh_message_afirmative">Sim</string>
+    <string name="refresh_message_negative">Agora não</string>
 
 </resources>

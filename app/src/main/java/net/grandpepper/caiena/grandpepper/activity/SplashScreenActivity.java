@@ -17,6 +17,7 @@ import net.grandpepper.caiena.grandpepper.models.GrandPepperDAO;
 public class SplashScreenActivity extends Activity {
 
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private Boolean flagRefresh = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,11 @@ public class SplashScreenActivity extends Activity {
 //        }
 
         try {
-            if (GrandPepperDAO.getInstance(this).count() <= 0) {
+
+            if (getIntent().getExtras() != null)
+                flagRefresh = getIntent().getExtras().getBoolean("refresh", false);
+
+            if (flagRefresh || GrandPepperDAO.getInstance(this).count() <= 0) {
                 new AsyncTaskUpdateData().execute(context);
                 return;
             }

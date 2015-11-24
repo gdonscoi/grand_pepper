@@ -37,6 +37,16 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
             db = GrandPepperDAO.getInstance(context).getConnectionDataBase();
             db.beginTransaction();
 
+            if(!grandPeppers.isEmpty()){
+                CallForPeppersDAO.getInstance(context).destroyAll();
+                ContactDAO.getInstance(context).destroyAll();
+                EventDAO.getInstance(context).destroyAll();
+                LocationDAO.getInstance(context).destroyAll();
+                GrandPepperDAO.getInstance(context).destroyAll();
+
+                AndroidSystemUtil.deleteDir();
+            }
+
             for (GrandPepper grandPepper : grandPeppers) {
 
                 if (grandPepper.backgroundImageUrl != null && !grandPepper.backgroundImageUrl.isEmpty()) {

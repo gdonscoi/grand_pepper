@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="net.grandpepper.caiena.grandpepper.activity.SplashScreenActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/refreshGrandPepper"
+        android:icon="@drawable/action_refresh"
+        android:title="@string/refresh_grand_pepper"
+        app:showAsAction="always" />
 </menu>

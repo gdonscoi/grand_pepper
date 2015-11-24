@@ -152,4 +152,12 @@ public class AndroidSystemUtil {
         }
         return "/".concat(nameImage);
     }
+
+    public static void deleteDir() {
+        File dir = getFolder();
+        if (dir.isDirectory()) {
+            for (File child : dir.listFiles())
+                child.delete();
+        }
+    }
 }

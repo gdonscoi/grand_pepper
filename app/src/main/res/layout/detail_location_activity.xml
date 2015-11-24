@@ -16,8 +16,8 @@
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
             android:background="#ffffff"
+            android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginBottom="15dp"
             app:expandedTitleMarginEnd="10dp"
@@ -58,13 +58,13 @@
                     android:id="@+id/location_maps"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/text_description_card_detail"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/circle_shape"
                     android:backgroundTint="#aec000"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignTop="@id/text_description_card_detail"
-                    android:text="Maps"/>
+                    android:text="Maps" />
             </RelativeLayout>
 
             <android.support.v7.widget.Toolbar
