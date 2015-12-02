@@ -1,12 +1,17 @@
 package net.grandpepper.caiena.grandpepper.activity;
 
+import android.content.ContentUris;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +20,8 @@ import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.beans.Event;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
+
+import java.util.Date;
 
 public class DetailEventActivity extends AppCompatActivity {
 
@@ -48,6 +55,20 @@ public class DetailEventActivity extends AppCompatActivity {
 
         assert grandPepper != null;
         ((TextView) findViewById(R.id.text_date_events)).setText(grandPepper.date);
+
+
+        findViewById(R.id.text_date_events).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                long startMillis;
+                Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
+                builder.appendPath("time");
+                ContentUris.appendId(builder, new Date().getTime());
+                Intent intent = new Intent(Intent.ACTION_VIEW)
+                        .setData(builder.build());
+                startActivity(intent);
+            }
+        });
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.container_events);
         for(Event event : grandPepper.eventCollection){

@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.adapters.AdapterGrandPepper;
@@ -28,6 +29,7 @@ import java.util.List;
 public class GrandPepperActivity extends AppCompatActivity {
 
     private Context context;
+    private boolean flagExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,10 +93,26 @@ public class GrandPepperActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     });
-            // Create the AlertDialog object and return it
             builder.create().show();
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!flagExit) {
+            flagExit = true;
+            Toast.makeText(context, "Toque novamente para sair.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        flagExit = false;
     }
 
 }

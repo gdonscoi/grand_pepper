@@ -155,7 +155,7 @@ public class AndroidSystemUtil {
 
     public static void deleteDir() {
         File dir = getFolder();
-        if (dir.isDirectory()) {
+        if (dir.isDirectory() && dir.listFiles() != null) {
             for (File child : dir.listFiles())
                 child.delete();
         }
