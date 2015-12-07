@@ -442,9 +442,8 @@
       "date": "2015/12/11",
       "summary": "",
       "locationName": "Campinas",
-      "locationBackgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-1.jpg",
-      "talksBackgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-3.jpg",
       "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-4.png",
+
       "events": [
           {
               "eventType": "breakfast",
@@ -562,7 +561,7 @@
       ],
       "callForPeppers": {
           "title": "Call for Peppers",
-          "subtitle": "subtitle text",
+          "subtitle": "Equipe Grandiosa",
           "backgroundImageUrl": "http://grandpepper-assets.caiena.net/backgrounds/grandpepper-4.png",
           "contacts": [
               {
