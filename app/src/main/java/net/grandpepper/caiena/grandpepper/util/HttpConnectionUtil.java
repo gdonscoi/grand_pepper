@@ -19,18 +19,22 @@ import java.util.List;
 
 public class HttpConnectionUtil {
     public static String sendRegistrationIdToBackend(String regId) throws Exception {
+        HttpURLConnection urlConnection = null;
         String answer = "";
-        URL url = new URL("http://www.davidpedoneze.com/gcm-php/ctrl/CtrlGcm.php");
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        urlConnection.setRequestProperty("method", "save-gcm-registration-id");
-        urlConnection.setRequestProperty("reg-id", regId);
         try {
+            URL url = new URL("http://amendoim:9292/mobile/save");
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            urlConnection.setRequestMethod("POST");
+            urlConnection.getOutputStream().write(("reg-id=".concat(regId)).getBytes());
+
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
             answer = AndroidSystemUtil.readStream(in);
         } catch (Exception e) {
             throw new Exception("Erro ao registrar.");
         } finally {
-            urlConnection.disconnect();
+            if (urlConnection != null)
+                urlConnection.disconnect();
         }
         return answer;
     }

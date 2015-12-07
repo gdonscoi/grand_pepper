@@ -1,7 +1,9 @@
 package net.grandpepper.caiena.grandpepper.activity;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,7 @@ import net.grandpepper.caiena.grandpepper.beans.Contact;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
 import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class CallForPeppersActivity extends AppCompatActivity {
 
     final public static int CALL_FOR_PEPPERS_DETAIL = 3;

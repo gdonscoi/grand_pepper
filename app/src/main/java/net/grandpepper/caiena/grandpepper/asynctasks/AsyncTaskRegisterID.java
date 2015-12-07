@@ -26,13 +26,12 @@ public class AsyncTaskRegisterID extends AsyncTask<Object, Boolean, Boolean> {
             gcm = GoogleCloudMessaging.getInstance(context);
 
             String regId = gcm.register(AndroidSystemUtil.SENDER_ID);
-
+            Log.e("regId", regId);
             HttpConnectionUtil.sendRegistrationIdToBackend(regId);
-
             AndroidSystemUtil.storeRegistrationId(context, regId);
+            Log.e("AsyncTasckRegister", "Registration ID saved for GCM");
         } catch (Exception e) {
             Log.e("AsyncTasckRegister", e.getMessage());
-            Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -41,15 +40,15 @@ public class AsyncTaskRegisterID extends AsyncTask<Object, Boolean, Boolean> {
 
     @Override
     public void onPostExecute(Boolean msg) {
-        if (msg) {
-            Intent mainIntent = new Intent(context, WebViewActivity.class);
-            Bundle mBundle = new Bundle();
-            mBundle.putString("url", "http://www.davidpedoneze.com/gp/");
-            mainIntent.putExtras(mBundle);
-            context.startActivity(mainIntent);
-            ((Activity) context).finish();
-            return;
-        }
-        ((Activity) context).finish();
+//        if (msg) {
+//            Intent mainIntent = new Intent(context, WebViewActivity.class);
+//            Bundle mBundle = new Bundle();
+//            mBundle.putString("url", "http://www.davidpedoneze.com/gp/");
+//            mainIntent.putExtras(mBundle);
+//            context.startActivity(mainIntent);
+//            ((Activity) context).finish();
+//            return;
+//        }
+//        ((Activity) context).finish();
     }
 }

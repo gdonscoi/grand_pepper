@@ -18,8 +18,10 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import net.grandpepper.caiena.grandpepper.Manifest;
 import net.grandpepper.caiena.grandpepper.R;
 import net.grandpepper.caiena.grandpepper.adapters.GifView;
+import net.grandpepper.caiena.grandpepper.asynctasks.AsyncTaskRegisterID;
 import net.grandpepper.caiena.grandpepper.asynctasks.AsyncTaskUpdateData;
 import net.grandpepper.caiena.grandpepper.models.GrandPepperDAO;
+import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 public class SplashScreenActivity extends Activity {
 
@@ -38,10 +40,10 @@ public class SplashScreenActivity extends Activity {
         if (!checkPlayServices(context))
             return;
 
-//        String regId = AndroidSystemUtil.getRegistrationId(this);
-//        if (regId.trim().isEmpty()) {
-//            new AsyncTaskRegisterID().execute(context);
-//        }
+        String regId = AndroidSystemUtil.getRegistrationId(this);
+        if (regId.trim().isEmpty()) {
+            new AsyncTaskRegisterID().execute(context);
+        }
 
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

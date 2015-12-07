@@ -2,10 +2,11 @@ package net.grandpepper.caiena.grandpepper.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,7 @@ import net.grandpepper.caiena.grandpepper.util.AndroidSystemUtil;
 
 import java.util.ArrayList;
 
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class DetailLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     final public static int LOCATION_DETAIL = 2;

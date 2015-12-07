@@ -1,10 +1,12 @@
 package net.grandpepper.caiena.grandpepper.activity;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -26,6 +28,7 @@ import net.grandpepper.caiena.grandpepper.models.GrandPepperDAO;
 import java.util.Collections;
 import java.util.List;
 
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class GrandPepperActivity extends AppCompatActivity {
 
     private Context context;
