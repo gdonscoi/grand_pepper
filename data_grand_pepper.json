@@ -446,117 +446,114 @@
 
       "events": [
           {
-              "eventType": "breakfast",
-              "title": "Café da Manhã",
-              "summary": "",
-              "startTime": "09:00",
-              "endTime": "09:30",
-              "authorName": "Todos"
+            "eventType": "breakfast",
+            "title": "Café da Manhã",
+            "summary": "",
+            "startTime": "09:00",
+            "endTime": "09:30",
+            "authorName": "Todos"
           },
           {
-              "eventType": "presentation",
-              "title": "Atividade surpresa",
-              "summary": "",
-              "startTime": "09:30",
-              "endTime": "09:45",
-              "authorName": "Todos"
+            "eventType": "presentation",
+            "title": "Atividade surpresa",
+            "summary": "",
+            "startTime": "09:30",
+            "endTime": "09:45",
+            "authorName": "Todos"
           },
           {
-              "eventType": "presentation",
-              "title": "Caiena Acontece",
-              "summary": "",
-              "startTime": "09:45",
-              "endTime": "10:00",
-              "authorName": "João von Zuben",
-              "authorAvatarUrl": ""
+            "eventType": "presentation",
+            "title": "Caiena Acontece",
+            "summary": "Jay-Z conta as novidades mais quentes do momento!",
+            "startTime": "09:45",
+            "endTime": "10:00",
+            "authorName": "João von Zuben",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jzuben.jpg"
           },
           {
-              "eventType": "presentation",
-              "title": "async.rb",
-              "summary": "",
-              "startTime": "10:00",
-              "endTime": "10:30",
-              "authorName": "Daniel Teixeira",
-              "authorAvatarUrl": ""
+            "eventType": "presentation",
+            "title": "Assembleia da PLR",
+            "summary": "Assembleia para votação da PLR junto com o Sindicato.",
+            "startTime": "10:00",
+            "endTime": "10:30",
+            "authorName": "Todos"
           },
           {
-              "eventType": "techtalk",
-              "title": "What's new in Rails 5",
-              "summary": "",
-              "startTime": "10:30",
-              "endTime": "11:00",
-              "authorName": "Guilherme Carlos",
-              "authorAvatarUrl": ""
+            "eventType": "techtalk",
+            "title": "What's new in Rails 5",
+            "summary": "Conheça as principais novidades e mudanças que virão na nova versão do nosso framework predileto: Ruby on Rails!",
+            "startTime": "10:30",
+            "endTime": "11:00",
+            "authorName": "Guilherme Carlos",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gcarlos.jpg"
           },
           {
-              "eventType": "techtalk",
-              "title": "UX, uai! A importância da User Experience pela sabedoria popular mineira.",
-              "summary": "",
-              "startTime": "11:00",
-              "endTime": "11:30",
-              "authorName": "Alexandre Ferreira",
-              "authorAvatarUrl": ""
+            "eventType": "techtalk",
+            "title": "UX, uai!",
+            "summary": "Assim como todo mineiro sabe que é importante cuar café novo pras visitas, todo profissional de tecnologia precisa entender a importância da UX para os usuários finais.",
+            "startTime": "11:00",
+            "endTime": "11:30",
+            "authorName": "Alexandre Ferreira",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/aferreira.jpg"
           },
           {
-              "eventType": "techtalk",
-              "title": "Communication Begins",
-              "summary": "",
-              "startTime": "11:30",
-              "endTime": "12:00",
-              "authorName": "Clarissa Salvioli",
-              "authorAvatarUrl": ""
+            "eventType": "techtalk",
+            "title": "Communication Begins",
+            "summary": "Saiba o que é Relações Públicas e como construiremos a Área de Comunicação da Caiena: principais objetivos, estratégias e ações para 2016.",
+            "startTime": "11:30",
+            "endTime": "12:00",
+            "authorName": "Clarissa Salvioli",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/csalvioli.jpg"
           },
           {
-              "eventType": "lunch",
-              "title": "Almoço @ The Fifties",
-              "summary": "...",
-              "startTime": "12:00",
-              "endTime": "14:00"
+            "eventType": "lunch",
+            "title": "Almoço @ The Fifties",
+            "summary": "",
+            "startTime": "12:00",
+            "endTime": "14:00"
           },
           {
-              "eventType": "presentation",
-              "title": "Sessão fotográfica",
-              "summary": "",
-              "startTime": "14:00",
-              "endTime": "14:30",
-              "authorName": "Todos",
-              "authorAvatarUrl": ""
+            "eventType": "presentation",
+            "title": "Sessão fotográfica",
+            "summary": "",
+            "startTime": "14:00",
+            "endTime": "14:30",
+            "authorName": "Todos"
           },
           {
-              "eventType": "presentation",
-              "title": "Da arte de construir Sofware",
-              "summary": "...",
-              "startTime": "14:30",
-              "endTime": "15:45",
-              "authorName": "Eduardo Foster",
-              "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/foster.jpg"
+            "eventType": "presentation",
+            "title": "Da arte de construir Sofware",
+            "summary": "Dicas para desenvolvimento de software sem sofrimento.",
+            "startTime": "14:30",
+            "endTime": "15:45",
+            "authorName": "Eduardo Foster",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/foster.jpg"
           },
           {
-              "eventType": "coffeebreak",
-              "title": "Let's have a break!",
-              "summary": "",
-              "startTime": "15:45",
-              "endTime": "16:00",
-              "authorName": "Todos",
-              "authorAvatarUrl": ""
+            "eventType": "coffeebreak",
+            "title": "Let's have a break!",
+            "summary": "",
+            "startTime": "15:45",
+            "endTime": "16:00",
+            "authorName": "Todos"
           },
           {
-              "eventType": "techtalk",
-              "title": "ECMA Script 6",
-              "summary": "",
-              "startTime": "16:00",
-              "endTime": "16:30",
-              "authorName": "Guilherme Ceolin",
-              "authorAvatarUrl": ""
+            "eventType": "techtalk",
+            "title": "ECMA Script 6",
+            "summary": "Trazendo Javascript moderno para os  trilhos!",
+            "startTime": "16:00",
+            "endTime": "16:30",
+            "authorName": "Guilherme Ceolin",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gceolin.jpg"
           },
           {
-              "eventType": "techtalk",
-              "title": "CSS - Boas práticas",
-              "summary": "",
-              "startTime": "16:30",
-              "endTime": "17:00",
-              "authorName": "Emerson Oliveira",
-              "authorAvatarUrl": ""
+            "eventType": "techtalk",
+            "title": "CSS - Boas práticas",
+            "summary": "Escrever CSS hoje não é apenas maquiar seu site ou sistema. Entenda como algumas boas práticas podem ajudar a melhorar sua organização e performance.",
+            "startTime": "16:30",
+            "endTime": "17:00",
+            "authorName": "Emerson Oliveira",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/eoliveira.jpg"
           }
       ],
       "callForPeppers": {
@@ -588,22 +585,22 @@
       },
       "locations": [
           {
-              "name": "Shopping Iguatemi",
-              "address" : "Rua dos testes, Jardim QA, Testlandia - QA, 111",
-              "action": "Livraria Cultura",
-              "latlong": "-22.893655, -47.027731"
+            "name": "Shopping Iguatemi",
+            "address" : "Av Iguatemi, 777 - 3º Piso, Campinas - São Paulo",
+            "action": "Livraria Cultura",
+            "latlong": "-22.891801, -47.028811"
           },
           {
-              "name": "The Fifties - Shopping Iguatemi",
-              "address" : "Av Iguatemi, 777 - 3º Piso,Campinas-São Paulo",
-              "action": "Almoço",
-              "latlong": "-22.891801, -47.028811"
+            "name": "The Fifties - Shopping Iguatemi",
+            "address" : "Av Iguatemi, 777 - 3º Piso, Campinas - São Paulo",
+            "action": "Almoço",
+            "latlong": "-22.891801, -47.028811"
           },
           {
-              "name": "Fritz",
-              "address" : "Rua Maria Monteiro, 330, Cambuí - Campinas - São Paulo",
-              "action": "Happy Hour",
-              "latlong": "-22.901003, -47.050586"
+            "name": "Fritz",
+            "address" : "Rua Maria Monteiro, 330, Cambuí - Campinas - São Paulo",
+            "action": "Happy Hour",
+            "latlong": "-22.901003, -47.050586"
           }
       ]
   }
