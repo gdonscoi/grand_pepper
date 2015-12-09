@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import net.grandpepper.caiena.grandpepper.activity.GrandPepperActivity;
+import net.grandpepper.caiena.grandpepper.activity.SplashScreenActivity;
 import net.grandpepper.caiena.grandpepper.beans.Contact;
 import net.grandpepper.caiena.grandpepper.beans.Event;
 import net.grandpepper.caiena.grandpepper.beans.GrandPepper;
@@ -27,9 +28,17 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
 
     private Context context;
 
+    public AsyncTaskUpdateData(Context context) {
+        this.context = context;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        ((SplashScreenActivity) context).loadMessage.setText("Downloading data …");
+    }
+
     @Override
     protected Boolean doInBackground(Object... params) {
-        context = (Context) params[0];
         SQLiteDatabase db = null;
         try {
             List<GrandPepper> grandPeppers = HttpConnectionUtil.parseJsonToInfo(HttpConnectionUtil.getJsonInfo());
@@ -37,7 +46,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
             db = GrandPepperDAO.getInstance(context).getConnectionDataBase();
             db.beginTransaction();
 
-            if(!grandPeppers.isEmpty()){
+            if (!grandPeppers.isEmpty()) {
                 CallForPeppersDAO.getInstance(context).destroyAll();
                 ContactDAO.getInstance(context).destroyAll();
                 EventDAO.getInstance(context).destroyAll();
@@ -56,28 +65,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
                     Log.e("AsyncTaskUpdateData", "randPepper.backgroundImageUrl");
                 }
 
-                if (grandPepper.locationBackgroundImageUrl != null && !grandPepper.locationBackgroundImageUrl.isEmpty()) {
-                    String[] imageNameLocation = grandPepper.locationBackgroundImageUrl.split("/");
-                    grandPepper.locationBackgroundImagePath = AndroidSystemUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.locationBackgroundImageUrl),
-                            String.valueOf(grandPepper.version).concat(imageNameLocation[imageNameLocation.length - 1]));
-                    Log.e("AsyncTaskUpdateData", "randPepper.locationBackgroundImageUrl");
-                }
-
-                if (grandPepper.talksBackgroundImageUrl != null && !grandPepper.talksBackgroundImageUrl.isEmpty()) {
-                    String[] imageNameTalks = grandPepper.talksBackgroundImageUrl.split("/");
-                    grandPepper.talksBackgroundImagePath = AndroidSystemUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.talksBackgroundImageUrl),
-                            String.valueOf(grandPepper.version).concat(imageNameTalks[imageNameTalks.length - 1]));
-                    Log.e("AsyncTaskUpdateData", "randPepper.talksBackgroundImageUrl");
-                }
-
                 if (grandPepper.callForPeppers != null) {
-                    if (grandPepper.callForPeppers.backgroundImageUrl != null && !grandPepper.callForPeppers.backgroundImageUrl.isEmpty()) {
-                        String[] imageName = grandPepper.callForPeppers.backgroundImageUrl.split("/");
-                        grandPepper.callForPeppers.backgroundImagePath = AndroidSystemUtil.saveImageInfo(HttpConnectionUtil.getImageInfo(grandPepper.callForPeppers.backgroundImageUrl),
-                                String.valueOf(grandPepper.callForPeppers.title).concat(imageName[imageName.length - 1]));
-                        Log.e("AsyncTaskUpdateData", "callForPeppers.backgroundImageUrl ");
-                    }
-
                     CallForPeppersDAO.getInstance(context).createOrUpdate(grandPepper.callForPeppers);
 
                     if (grandPepper.callForPeppers.contactsJson != null) {
@@ -129,7 +117,7 @@ public class AsyncTaskUpdateData extends AsyncTask<Object, Boolean, Boolean> {
             ((Activity) context).finish();
             return;
         }
+        ((SplashScreenActivity) context).loadMessage.setText("Error in downloading data …");
         Toast.makeText(context, "Erro ao fazer update.", Toast.LENGTH_LONG).show();
-//        ((Activity) context).finish();
     }
 }

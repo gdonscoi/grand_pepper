@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -29,6 +30,7 @@ public class SplashScreenActivity extends Activity {
     private Boolean flagRefresh = false;
     private Context context;
     final private int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
+    public TextView loadMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class SplashScreenActivity extends Activity {
 
         setContentView(R.layout.activity_splash_screen);
         context = this;
+
+        loadMessage = (TextView) findViewById(R.id.load_message);
 
         if (!checkPlayServices(context))
             return;
@@ -60,7 +64,7 @@ public class SplashScreenActivity extends Activity {
                         return;
                     }
 
-                    new AsyncTaskUpdateData().execute(context);
+                    new AsyncTaskUpdateData(context).execute();
                     return;
                 }
             }
@@ -116,7 +120,7 @@ public class SplashScreenActivity extends Activity {
                                            String permissions[], int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
-                new AsyncTaskUpdateData().execute(context);
+                new AsyncTaskUpdateData(context).execute();
                 break;
             }
 

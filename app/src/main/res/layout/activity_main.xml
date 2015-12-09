@@ -8,7 +8,7 @@
         android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#c80900"
+        android:background="#aec000"
         android:layout_alignParentTop="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -29,12 +29,13 @@
 
                 <ImageView
                     android:id="@+id/image_background_card"
-                    android:layout_width="600dp"
-                    android:layout_height="600dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
                     android:layout_margin="0dp"
                     android:adjustViewBounds="true"
                     android:contentDescription="@android:string/untitled"
-                    android:src="@drawable/grand_pepper_logo"
+                    android:src="@drawable/gp_background"
+                    android:scaleType="fitXY"
                     android:transitionName="comum_image" />
 
                 <TextView

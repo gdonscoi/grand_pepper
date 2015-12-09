@@ -40,20 +40,10 @@ public class DetailTalkActivity extends AppCompatActivity {
         if (toolbar.getNavigationIcon() != null)
             toolbar.getNavigationIcon().setTint(Color.parseColor("#ffffff"));
 
-
-        ((TextView) findViewById(R.id.text_description_card_detail)).setText(getIntent().getExtras().getString("title"));
-
-        String nameBackgroundImage = getIntent().getExtras().getString("background_image");
-        if (nameBackgroundImage != null && !nameBackgroundImage.isEmpty()) {
-            Bitmap backgroundImage = AndroidSystemUtil.getImageExternalStorage(nameBackgroundImage);
-            if (backgroundImage != null)
-                ((ImageView) findViewById(R.id.image_background_detail)).setImageBitmap(backgroundImage);
-        }
-
         GrandPepper grandPepper = (GrandPepper) getIntent().getExtras().getSerializable("grand_pepper");
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(getIntent().getExtras().getString("title"));
+        collapsingToolbarLayout.setTitle(getResources().getString(R.string.text_card_talks));
         collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
         collapsingToolbarLayout.setContentScrimColor(Color.parseColor("#121212"));
@@ -82,7 +72,6 @@ public class DetailTalkActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 supportFinishAfterTransition();
                 return true;

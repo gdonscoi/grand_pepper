@@ -38,7 +38,7 @@
                     android:adjustViewBounds="true"
                     android:contentDescription="@android:string/untitled"
                     android:scaleType="fitXY"
-                    android:src="@drawable/galera"
+                    android:src="@drawable/background_palestras"
                     android:transitionName="comum_image_detail" />
 
                 <TextView
@@ -50,6 +50,7 @@
                     android:padding="10dp"
                     android:textColor="#ffffff"
                     android:textSize="26sp"
+                    android:text="@string/text_card_talks"
                     android:transitionName="comum_text_detail" />
             </RelativeLayout>
 

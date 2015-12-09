@@ -38,7 +38,7 @@
                     android:adjustViewBounds="true"
                     android:contentDescription="@android:string/untitled"
                     android:scaleType="fitXY"
-                    android:src="@drawable/galera"
+                    android:src="@drawable/background_call"
                     android:transitionName="comum_image_detail" />
 
                 <TextView
@@ -50,6 +50,7 @@
                     android:padding="10dp"
                     android:textColor="#ffffff"
                     android:textSize="26sp"
+                    android:text="@string/text_card_call"
                     android:transitionName="comum_text_detail" />
             </RelativeLayout>
 
@@ -82,15 +83,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:textSize="16sp"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="15dp"
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:id="@+id/container_contact"
-                android:layout_below="@id/call_for_peppers_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"/>
+                android:layout_below="@id/call_for_peppers_description"
+                android:orientation="vertical" />
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>

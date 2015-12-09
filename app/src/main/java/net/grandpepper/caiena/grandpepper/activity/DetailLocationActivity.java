@@ -48,7 +48,7 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
     private GrandPepper grandPepper;
     private RelativeLayout containerMap;
     private GoogleMap mMap;
-    private Button buttonMaps;
+    private RelativeLayout buttonMaps;
     private boolean readyBackAnimation = true;
 
     @Override
@@ -71,18 +71,10 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
             toolbar.getNavigationIcon().setTint(Color.parseColor("#ffffff"));
 
         containerMap = (RelativeLayout) findViewById(R.id.container_map);
-        ((TextView) findViewById(R.id.text_description_card_detail)).setText(getIntent().getExtras().getString("title"));
-
-        String nameBackgroundImage = getIntent().getExtras().getString("background_image");
-        if (nameBackgroundImage != null && !nameBackgroundImage.isEmpty()) {
-            Bitmap backgroundImage = AndroidSystemUtil.getImageExternalStorage(nameBackgroundImage);
-            if (backgroundImage != null)
-                ((ImageView) findViewById(R.id.image_background_detail)).setImageBitmap(backgroundImage);
-        }
 
         grandPepper = (GrandPepper) getIntent().getExtras().getSerializable("grand_pepper");
 
-        buttonMaps = (Button) findViewById(R.id.location_maps);
+        buttonMaps = (RelativeLayout) findViewById(R.id.location_maps);
         buttonMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,7 +83,7 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
         });
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle(getIntent().getExtras().getString("title"));
+        collapsingToolbarLayout.setTitle(getResources().getString(R.string.text_card_locations));
         collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
         collapsingToolbarLayout.setContentScrimColor(Color.parseColor("#121212"));
@@ -144,7 +136,7 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
         float finalRadius = Math.max(containerMap.getWidth(), containerMap.getHeight());
 
         Animator circularReveal = ViewAnimationUtils.createCircularReveal(containerMap, cx, cy, 0, finalRadius);
-        circularReveal.setDuration(1000);
+        circularReveal.setDuration(500);
 
         containerMap.setVisibility(View.VISIBLE);
         readyBackAnimation = false;
@@ -166,7 +158,7 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
 
         Animator anim = ViewAnimationUtils.createCircularReveal(containerMap, cx, cy,
                 initialRadius, 0);
-        anim.setDuration(1000);
+        anim.setDuration(500);
 
         readyBackAnimation = false;
         anim.addListener(new AnimatorListenerAdapter() {
@@ -202,7 +194,7 @@ public class DetailLocationActivity extends AppCompatActivity implements OnMapRe
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, size.x, size.y, padding);
         googleMap.moveCamera(cameraUpdate);
         googleMap.animateCamera(cameraUpdate);
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(15.0F));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(14.0F));
     }
 
 }

@@ -1,9 +1,11 @@
 package net.grandpepper.caiena.grandpepper.adapters;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
@@ -46,6 +48,7 @@ public class AdapterGrandPepper extends RecyclerView.Adapter<AdapterGrandPepper.
             v.setOnClickListener(this);
         }
 
+        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(context, GrandPepperDetailActivity.class);
@@ -55,7 +58,6 @@ public class AdapterGrandPepper extends RecyclerView.Adapter<AdapterGrandPepper.
 
             Pair<View, String> p1 = Pair.create(view.findViewById(R.id.image_background_card), "comum_image");
             Pair<View, String> p2 = Pair.create(view.findViewById(R.id.text_description_card), "comum_text");
-//            Pair<View, String> p3 = Pair.create(view.findViewById(R.id.content_background_text), "comum_background_text");
 
             ActivityOptionsCompat options = ActivityOptionsCompat.
                     makeSceneTransitionAnimation((Activity) context, p1, p2);

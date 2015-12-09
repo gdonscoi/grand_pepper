@@ -11,26 +11,16 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"/>
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
 
-<!--<WebView-->
-        <!--android:id="@+id/webview_imagem"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:paddingTop="100dp" />-->
-
-    <!--<ImageView-->
-    <!--android:id="@+id/webview_splash"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:layout_centerVertical="true"-->
-    <!--android:adjustViewBounds="true"-->
-    <!--android:contentDescription="Logo"-->
-    <!--android:scaleType="fitXY"-->
-    <!--android:src="@drawable/load_gp" />-->
+    <TextView
+        android:id="@+id/load_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gif_view"
+        android:text="@string/load_message"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"/>
 
 </RelativeLayout>

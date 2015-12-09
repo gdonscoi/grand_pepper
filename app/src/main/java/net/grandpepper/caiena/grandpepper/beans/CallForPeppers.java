@@ -25,13 +25,6 @@ public class CallForPeppers implements Serializable, IEntidade {
     @DatabaseField
     public String subtitle;
 
-    @DatabaseField
-    public String backgroundImageUrl;
-
-    @Expose
-    @DatabaseField
-    public String backgroundImagePath;
-
     @Expose
     @ForeignCollectionField(eager = true, maxEagerForeignCollectionLevel = 1)
     public Collection<Contact> contactCollection;

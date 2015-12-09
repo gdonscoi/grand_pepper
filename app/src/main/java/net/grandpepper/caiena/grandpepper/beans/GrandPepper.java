@@ -36,23 +36,9 @@ public class GrandPepper implements Serializable, IEntidade {
     @DatabaseField
     public String backgroundImageUrl;
 
-    @DatabaseField
-    public String locationBackgroundImageUrl;
-
-    @DatabaseField
-    public String talksBackgroundImageUrl;
-
     @Expose
     @DatabaseField
     public String backgroundImagePath;
-
-    @Expose
-    @DatabaseField
-    public String locationBackgroundImagePath;
-
-    @Expose
-    @DatabaseField
-    public String talksBackgroundImagePath;
 
     @DatabaseField
     public String type;

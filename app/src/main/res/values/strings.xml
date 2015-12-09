@@ -13,5 +13,10 @@
     <string name="refresh_message">Deseja atualizar as informações?</string>
     <string name="refresh_message_afirmative">Sim</string>
     <string name="refresh_message_negative">Agora não</string>
+    <string name="load_message">Loading …</string>
+    <string name="text_card_events">Programação</string>
+    <string name="text_card_talks">Palestras</string>
+    <string name="text_card_locations">Localização</string>
+    <string name="text_card_call">Call for Peppers</string>
 
 </resources>

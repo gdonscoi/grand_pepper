@@ -27,6 +27,7 @@
         android:required="true" />
 
     <application
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@drawable/ic_launcher"

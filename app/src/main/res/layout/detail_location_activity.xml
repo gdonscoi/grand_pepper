@@ -40,7 +40,7 @@
                     android:adjustViewBounds="true"
                     android:contentDescription="@android:string/untitled"
                     android:scaleType="fitXY"
-                    android:src="@drawable/galera"
+                    android:src="@drawable/background_localizacao"
                     android:transitionName="comum_image_detail" />
 
                 <TextView
@@ -50,11 +50,12 @@
                     android:layout_alignBottom="@id/image_background_detail"
                     android:background="#80000000"
                     android:padding="10dp"
+                    android:text="@string/text_card_locations"
                     android:textColor="#ffffff"
                     android:textSize="26sp"
                     android:transitionName="comum_text_detail" />
 
-                <Button
+                <RelativeLayout
                     android:id="@+id/location_maps"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -63,8 +64,20 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/circle_shape"
-                    android:backgroundTint="#aec000"
-                    android:text="Maps" />
+                    android:backgroundTint="#aec000">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_maps"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@android:string/untitled"
+                        android:scaleType="fitXY"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="20dp"/>
+
+                </RelativeLayout>
             </RelativeLayout>
 
             <android.support.v7.widget.Toolbar
