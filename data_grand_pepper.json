@@ -449,24 +449,24 @@
             "eventType": "breakfast",
             "title": "Café da Manhã",
             "summary": "",
-            "startTime": "09:00",
-            "endTime": "09:30",
+            "startTime": "10:00",
+            "endTime": "10:30",
             "authorName": "Todos"
           },
           {
             "eventType": "presentation",
             "title": "Atividade surpresa",
             "summary": "",
-            "startTime": "09:30",
-            "endTime": "09:45",
+            "startTime": "10:00",
+            "endTime": "10:30",
             "authorName": "Todos"
           },
           {
             "eventType": "presentation",
             "title": "Caiena Acontece",
             "summary": "Jay-Z conta as novidades mais quentes do momento!",
-            "startTime": "09:45",
-            "endTime": "10:00",
+            "startTime": "10:30",
+            "endTime": "10:45",
             "authorName": "João von Zuben",
             "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/jzuben.jpg"
           },
@@ -474,16 +474,16 @@
             "eventType": "presentation",
             "title": "Assembleia da PLR",
             "summary": "Assembleia para votação da PLR junto com o Sindicato.",
-            "startTime": "10:00",
-            "endTime": "10:30",
+            "startTime": "10:45",
+            "endTime": "11:00",
             "authorName": "Todos"
           },
           {
             "eventType": "techtalk",
             "title": "What's new in Rails 5",
             "summary": "Conheça as principais novidades e mudanças que virão na nova versão do nosso framework predileto: Ruby on Rails!",
-            "startTime": "10:30",
-            "endTime": "11:00",
+            "startTime": "11:00",
+            "endTime": "11:30",
             "authorName": "Guilherme Carlos",
             "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gcarlos.jpg"
           },
@@ -491,19 +491,10 @@
             "eventType": "techtalk",
             "title": "UX, uai!",
             "summary": "Assim como todo mineiro sabe que é importante cuar café novo pras visitas, todo profissional de tecnologia precisa entender a importância da UX para os usuários finais.",
-            "startTime": "11:00",
-            "endTime": "11:30",
-            "authorName": "Alexandre Ferreira",
-            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/aferreira.jpg"
-          },
-          {
-            "eventType": "techtalk",
-            "title": "Communication Begins",
-            "summary": "Saiba o que é Relações Públicas e como construiremos a Área de Comunicação da Caiena: principais objetivos, estratégias e ações para 2016.",
             "startTime": "11:30",
             "endTime": "12:00",
-            "authorName": "Clarissa Salvioli",
-            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/csalvioli.jpg"
+            "authorName": "Alexandre Ferreira",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/aferreira.jpg"
           },
           {
             "eventType": "lunch",
@@ -521,11 +512,20 @@
             "authorName": "Todos"
           },
           {
+            "eventType": "techtalk",
+            "title": "Communication Begins",
+            "summary": "Saiba o que é Relações Públicas e como construiremos a Área de Comunicação da Caiena: principais objetivos, estratégias e ações para 2016.",
+            "startTime": "14:30",
+            "endTime": "15:00",
+            "authorName": "Clarissa Salvioli",
+            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/csalvioli.jpg"
+          },
+          {
             "eventType": "presentation",
             "title": "Da arte de construir Sofware",
             "summary": "Dicas para desenvolvimento de software sem sofrimento.",
-            "startTime": "14:30",
-            "endTime": "15:45",
+            "startTime": "15:00",
+            "endTime": "16:15",
             "authorName": "Eduardo Foster",
             "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/foster.jpg"
           },
@@ -533,27 +533,27 @@
             "eventType": "coffeebreak",
             "title": "Let's have a break!",
             "summary": "",
-            "startTime": "15:45",
-            "endTime": "16:00",
+            "startTime": "16:15",
+            "endTime": "16:30",
             "authorName": "Todos"
           },
           {
             "eventType": "techtalk",
             "title": "ECMA Script 6",
             "summary": "Trazendo Javascript moderno para os  trilhos!",
-            "startTime": "16:00",
-            "endTime": "16:30",
+            "startTime": "16:30",
+            "endTime": "17:00",
             "authorName": "Guilherme Ceolin",
             "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/gceolin.jpg"
           },
           {
             "eventType": "techtalk",
-            "title": "CSS - Boas práticas",
-            "summary": "Escrever CSS hoje não é apenas maquiar seu site ou sistema. Entenda como algumas boas práticas podem ajudar a melhorar sua organização e performance.",
-            "startTime": "16:30",
-            "endTime": "17:00",
-            "authorName": "Emerson Oliveira",
-            "authorAvatarUrl": "http://grandpepper-assets.caiena.net/avatars/eoliveira.jpg"
+            "title": "Encerramento",
+            "summary": "",
+            "startTime": "17:00",
+            "endTime": "17:20",
+            "authorName": "Organização Grandiosa",
+            "authorAvatarUrl": ""
           }
       ],
       "callForPeppers": {
