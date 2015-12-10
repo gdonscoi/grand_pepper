@@ -22,7 +22,7 @@ public class HttpConnectionUtil {
         HttpURLConnection urlConnection = null;
         String answer = "";
         try {
-            URL url = new URL("http://amendoim:9292/mobile/save");
+            URL url = new URL("http://gcm.caiena.net/mobile/save");
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             urlConnection.setRequestMethod("POST");

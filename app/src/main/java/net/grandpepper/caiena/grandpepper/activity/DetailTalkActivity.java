@@ -55,7 +55,7 @@ public class DetailTalkActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
         try {
-            recList.setAdapter(new AdapterDetailTalk(EventDAO.getInstance(this).getTalks(grandPepper.version)));
+            recList.setAdapter(new AdapterDetailTalk(EventDAO.getInstance(this).getTalks(grandPepper.version),this));
         } catch (Exception e) {
             Log.e("DetailTalkActivity", "Erro on load Events type for talks");
             onBackPressed();

@@ -1,6 +1,8 @@
 package net.grandpepper.caiena.grandpepper.adapters;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import java.util.List;
 public class AdapterDetailTalk extends RecyclerView.Adapter<AdapterDetailTalk.ViewHolder> {
 
     private List<Event> talks;
+    private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView startTime;
@@ -35,8 +38,9 @@ public class AdapterDetailTalk extends RecyclerView.Adapter<AdapterDetailTalk.Vi
         }
     }
 
-    public AdapterDetailTalk(List<Event> talks) {
+    public AdapterDetailTalk(List<Event> talks,Context context) {
         this.talks = talks;
+        this.context = context;
     }
 
     @Override
@@ -58,6 +62,8 @@ public class AdapterDetailTalk extends RecyclerView.Adapter<AdapterDetailTalk.Vi
         Bitmap backgroundImage = AndroidSystemUtil.getImageExternalStorage(talks.get(position).authorAvatarPath);
         if (backgroundImage != null)
             holder.imageAuthor.setImageBitmap(AndroidSystemUtil.getCircularAvatar(backgroundImage));
+        else
+            holder.imageAuthor.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.usuario_image));
     }
 
 
